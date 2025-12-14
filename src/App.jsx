@@ -10,7 +10,6 @@ function App() {
   return (
     <div className="relative min-h-screen overflow-x-hidden text-neutral-300 antialiased selection:bg-cyan-300 selection:text-cyan-900">
 
-      {/* 🌊 Liquid Ether Background */}
       <div className="fixed inset-0 -z-10">
         <LiquidEther
           colors={['#5227FF', '#FF9FFC', '#B19EEF']}
@@ -31,10 +30,8 @@ function App() {
         />
       </div>
 
-      {/* Base dark layer */}
       <div className="fixed inset-0 -z-20 bg-slate-950" />
 
-      {/* Content */}
       <div className="container mx-auto px-8 relative z-10">
         <Navbar />
         <Hero />
