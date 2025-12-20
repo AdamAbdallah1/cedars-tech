@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Snowfall from 'react-snowfall';
 
 const Hero = () => {
   return (
@@ -11,6 +12,7 @@ const Hero = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
     >
+      <Snowfall color="82C3D9"/>
 
       <motion.h1
         className="lg:text-7xl text-4xl font-inter text-center bg-linear-to-r from-pink-300 via-slate-500 to bg-purple-500 bg-clip-text tracking-tight text-transparent"
