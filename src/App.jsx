@@ -12,6 +12,7 @@ import NotificationBar from './components/NotificationBar';
 import Loader from './components/Loader';
 import Feedback from './components/Feedback';
 import ProgressBar from './components/ProgressBar';
+import Projects from './components/Projects';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -55,6 +56,7 @@ function App() {
             <Navbar />
             <Hero />
             <Offer />
+            <Projects />
             <Contact />
             <Footer />
           </div>
