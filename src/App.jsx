@@ -18,11 +18,20 @@ const LiquidEther = React.lazy(() => import('./components/LiquidEther'));
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [showLiquidEther, setShowLiquidEther] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2000);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (!loading) {
+      // Lazy-load LiquidEther after Hero is rendered
+      const heroTimer = setTimeout(() => setShowLiquidEther(true), 500);
+      return () => clearTimeout(heroTimer);
+    }
+  }, [loading]);
 
   return (
     <div className="relative min-h-screen overflow-x-hidden text-neutral-300 antialiased selection:bg-cyan-300 selection:text-cyan-900">
@@ -32,25 +41,27 @@ function App() {
         <Suspense fallback={<Loader />}>
           <ProgressBar />
 
-          <div className="fixed inset-0 -z-10">
-            <LiquidEther
-              colors={['#5227FF', '#FF9FFC', '#B19EEF']}
-              mouseForce={20}
-              cursorSize={100}
-              isViscous={false}
-              viscous={30}
-              iterationsViscous={32}
-              iterationsPoisson={32}
-              resolution={0.5}
-              isBounce={false}
-              autoDemo={true}
-              autoSpeed={0.5}
-              autoIntensity={2.2}
-              takeoverDuration={0.25}
-              autoResumeDelay={3000}
-              autoRampDuration={0.6}
-            />
-          </div>
+          {showLiquidEther && (
+            <div className="fixed inset-0 -z-10">
+              <LiquidEther
+                colors={['#5227FF', '#FF9FFC', '#B19EEF']}
+                mouseForce={20}
+                cursorSize={100}
+                isViscous={false}
+                viscous={30}
+                iterationsViscous={32}
+                iterationsPoisson={32}
+                resolution={0.5}
+                isBounce={false}
+                autoDemo={true}
+                autoSpeed={0.5}
+                autoIntensity={2.2}
+                takeoverDuration={0.25}
+                autoResumeDelay={3000}
+                autoRampDuration={0.6}
+              />
+            </div>
+          )}
 
           <div className="fixed inset-0 -z-20 bg-slate-950" />
 
