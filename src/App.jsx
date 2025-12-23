@@ -38,7 +38,9 @@ function App() {
 
       {!loading && (
         <Suspense fallback={<Loader />}>
+          <Snowfall />
           <ProgressBar />
+
 
           {showLiquidEther && (
             <div className="fixed inset-0 -z-10">
@@ -65,9 +67,7 @@ function App() {
           <div className="fixed inset-0 -z-20 bg-slate-950" />
 
           <div className="container mx-auto px-8 relative z-10">
-            <Navbar />
-            <Snowfall color="#82C3D9"/>
-            
+            <Navbar />            
             <Hero />
             <Offer />
             <Projects />
