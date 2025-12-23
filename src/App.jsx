@@ -1,18 +1,20 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Offer from './components/Offer';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import LiquidEther from './components/LiquidEther';
-import ScrollToTop from './components/ScrollToTop';
-import CookieBar from './components/CookieBar';
-import NotificationBar from './components/NotificationBar';
-import Loader from './components/Loader';
-import Feedback from './components/Feedback';
 import ProgressBar from './components/ProgressBar';
-import Projects from './components/Projects';
+import Loader from './components/Loader';
+
+// Lazy-load below-the-fold components
+const Offer = React.lazy(() => import('./components/Offer'));
+const Projects = React.lazy(() => import('./components/Projects'));
+const Contact = React.lazy(() => import('./components/Contact'));
+const Footer = React.lazy(() => import('./components/Footer'));
+const ScrollToTop = React.lazy(() => import('./components/ScrollToTop'));
+const CookieBar = React.lazy(() => import('./components/CookieBar'));
+const NotificationBar = React.lazy(() => import('./components/NotificationBar'));
+const Feedback = React.lazy(() => import('./components/Feedback'));
+const LiquidEther = React.lazy(() => import('./components/LiquidEther'));
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -24,12 +26,12 @@ function App() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden text-neutral-300 antialiased selection:bg-cyan-300 selection:text-cyan-900">
-
       {loading && <Loader />}
 
       {!loading && (
-        <>
-        <ProgressBar />
+        <Suspense fallback={<Loader />}>
+          <ProgressBar />
+
           <div className="fixed inset-0 -z-10">
             <LiquidEther
               colors={['#5227FF', '#FF9FFC', '#B19EEF']}
@@ -65,7 +67,7 @@ function App() {
           <CookieBar />
           <NotificationBar />
           <Feedback />
-        </>
+        </Suspense>
       )}
     </div>
   );
