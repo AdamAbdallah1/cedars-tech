@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import ProgressBar from './components/ProgressBar';
 import Loader from './components/Loader';
 import Snowfall from 'react-snowfall';
+import { Analytics } from "@vercel/analytics/next"
 
 const Offer = React.lazy(() => import('./components/Offer'));
 const Projects = React.lazy(() => import('./components/Projects'));
