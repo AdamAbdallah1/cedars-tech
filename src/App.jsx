@@ -4,8 +4,8 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ProgressBar from './components/ProgressBar';
 import Loader from './components/Loader';
+import Snowfall from 'react-snowfall';
 
-// Lazy-load below-the-fold components
 const Offer = React.lazy(() => import('./components/Offer'));
 const Projects = React.lazy(() => import('./components/Projects'));
 const Contact = React.lazy(() => import('./components/Contact'));
@@ -27,7 +27,6 @@ function App() {
 
   useEffect(() => {
     if (!loading) {
-      // Lazy-load LiquidEther after Hero is rendered
       const heroTimer = setTimeout(() => setShowLiquidEther(true), 500);
       return () => clearTimeout(heroTimer);
     }
@@ -67,6 +66,8 @@ function App() {
 
           <div className="container mx-auto px-8 relative z-10">
             <Navbar />
+            <Snowfall color="#82C3D9"/>
+            
             <Hero />
             <Offer />
             <Projects />

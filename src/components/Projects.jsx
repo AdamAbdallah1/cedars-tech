@@ -62,7 +62,7 @@ const Projects = () => {
         initial={{ opacity: 0, y: -60 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="lg:text-5xl text-3xl font-bold bg-gradient-to-r from-pink-300 via-purple-400 to-indigo-500 bg-clip-text text-transparent"
+        className="lg:text-5xl text-3xl font-bold bg-linear-to-r from-pink-300 via-purple-400 to-indigo-500 bg-clip-text text-transparent"
       >
         Demos & Projects
       </motion.h1>
