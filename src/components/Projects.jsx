@@ -20,6 +20,13 @@ const Projects = () => {
       icon: <FaLaptopCode size={42} className="text-[#9754DE] mb-3" />,
     },
     {
+      label: "Demo",
+      title: "Barber Shop Demo",
+      desc: "A stylish barber shop website demo with service listings and booking options.",
+      link: "https://adamabdallah1.github.io/barber-demo",
+      icon: <FaLaptopCode size={42} className="text-[#9754DE] mb-3" />,
+    },
+    {
       label: "Client",
       title: "ABC Qatar",
       desc: "Professional business website for ABC Qatar.",

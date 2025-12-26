@@ -29,7 +29,7 @@ const Hero = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.8 }}
       >
-        Professional websites, digital solutions, and premium streaming services.
+        Cedars Tech is a Lebanon-based web development studio specializing in professional websites for coffee shops, restaurants, and local businesses in Beirut and across Lebanon.
       </motion.p>
 
       <motion.div
