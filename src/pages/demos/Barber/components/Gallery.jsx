@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
-import cut1 from "/barber/barber1.jpg"
+import cut1 from "../assets/gallery/barber1.jpg"
 import cut2 from "../assets/gallery/barber2.jpg"
 import cut3 from "../assets/gallery/barber3.jpg"
 import cut4 from "../assets/gallery/barber4.jpg"
