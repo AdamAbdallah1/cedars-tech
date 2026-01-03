@@ -1,0 +1,396 @@
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+.App-header {
+    background-color: #0f0f10;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Luxury Minimalist Design System for BLCK Coffee */
+
+/* Foundation Colors - Warm Neutral Palette */
+:root {
+  /* Primary Backgrounds - Warm foundation */
+  --bg-primary: #fffef2;
+  --bg-secondary: #f6f5e8;
+  --bg-subtle: #ebeade;
+  
+  /* Text Hierarchy - Rich contrast */
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-light: #bcbbb4;
+  --text-meta: #4a4a4a;
+  
+  /* Interactive States - Minimal emphasis */
+  --interactive-base: #333333;
+  --interactive-hover: #000000;
+  --focus-outline: #252525;
+  
+  /* Borders & Separators */
+  --border-light: #bcbbb4;
+  --border-medium: #cccccc;
+  --border-subtle: rgba(51,51,51,0.2);
+}
+
+/* Typography Scale */
+.hero-large {
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.33;
+  color: var(--text-primary);
+}
+
+.hero-medium {
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.33;
+  color: var(--text-primary);
+}
+
+.heading-1 {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.heading-2 {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.heading-3 {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.body-large {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+.body-regular {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.body-small {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+.button-text {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.navigation-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+/* Primary Button - Sharp rectangular with 0px border radius */
+.btn-primary {
+  background: transparent;
+  color: var(--interactive-base);
+  border: 1px solid var(--interactive-base);
+  border-radius: 0px;
+  padding: 19px 23px;
+  min-width: 210px;
+  height: 60px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s cubic-bezier(.645,.045,.355,1), color 0.2s cubic-bezier(.645,.045,.355,1);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary:hover {
+  background: var(--interactive-base);
+  color: var(--bg-primary);
+}
+
+.btn-primary:active {
+  background: var(--interactive-hover);
+  color: var(--bg-primary);
+}
+
+/* Secondary Button - Text only with underline */
+.btn-secondary {
+  background: none;
+  border: none;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--interactive-base);
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.btn-secondary:after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  width: 0;
+  height: 1px;
+  background: var(--interactive-base);
+  transition: width 0.5s ease-in-out;
+}
+
+.btn-secondary:hover:after {
+  width: calc(100% - 32px);
+}
+
+/* Icon Button - Text with arrow */
+.btn-icon {
+  background: none;
+  border: none;
+  padding: 8px 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--interactive-base);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s ease;
+}
+
+.btn-icon svg {
+  width: 12px;
+  height: 12px;
+  transition: transform 0.2s ease;
+}
+
+.btn-icon:hover svg {
+  transform: translateX(4px);
+}
+
+/* Navigation - Clean & Minimal */
+.navigation-header {
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-light);
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navigation-logo {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.navigation-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 12px 0;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.navigation-link:after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--text-primary);
+  transition: width 0.5s ease-in-out;
+}
+
+.navigation-link:hover:after,
+.navigation-link.active:after {
+  width: 100%;
+}
+
+.navigation-utilities {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Container System */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Grid Layouts */
+.grid-two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.grid-product-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin: 80px 0;
+}
+
+/* Section Spacing */
+.section-padding {
+  padding: 120px 0;
+}
+
+.section-padding-small {
+  padding: 80px 0;
+}
+
+/* Spacing System */
+.space-xs { margin: 8px; }
+.space-sm { margin: 16px; }
+.space-md { margin: 24px; }
+.space-lg { margin: 32px; }
+.space-xl { margin: 48px; }
+.space-xxl { margin: 80px; }
+
+.pad-xs { padding: 8px; }
+.pad-sm { padding: 16px; }
+.pad-md { padding: 24px; }
+.pad-lg { padding: 32px; }
+.pad-xl { padding: 48px; }
+.pad-xxl { padding: 80px; }
+
+.content-spacing > * + * {
+  margin-top: 24px;
+}
+
+.section-spacing > * + * {
+  margin-top: 80px;
+}
+
+/* Transition Standards */
+.transition-smooth {
+  transition: all 0.2s cubic-bezier(.645,.045,.355,1);
+}
+
+.transition-slow {
+  transition: all 0.5s ease-in-out;
+}
+
+.hover-lift {
+  transition: transform 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 24px;
+  }
+  
+  .grid-two-column {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .section-padding {
+    padding: 80px 0;
+  }
+  
+  .section-padding-small {
+    padding: 60px 0;
+  }
+  
+  .navigation-menu {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 16px;
+  }
+  
+  .grid-product-showcase {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .section-padding {
+    padding: 60px 0;
+  }
+  
+  .section-padding-small {
+    padding: 40px 0;
+  }
+  
+  .hero-large {
+    font-size: 24px;
+  }
+  
+  .hero-medium {
+    font-size: 20px;
+  }
+}
