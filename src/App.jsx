@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Loader from "./components/Loader";
 import Barber from "./pages/demos/Barber";
 import Portfolio from "./pages/demos/Portfolio";
-import CoffeeShop from "./pages/demos/CoffeeShop";
+import Restaurant from "./pages/demos/Restaurant";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/demo/barber" element={<Barber />} />
           <Route path="/demo/portfolio" element={<Portfolio />} />
-          <Route path="/demo/coffee-shop" element={<CoffeeShop />} />
+          <Route path="/demo/restaurant" element={<Restaurant />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
