@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/streaming/(.*)",
+      "destination": "https://streaming-seven-orcin.vercel.app/streaming/$1"
+    },
+    {
       "source": "/demo/(.*)",
       "destination": "/index.html"
     },
