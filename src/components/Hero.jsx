@@ -3,9 +3,7 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    
     <motion.div
-      
       className="w-full flex flex-col gap-10 justify-center items-center py-30"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
@@ -19,8 +17,10 @@ const Hero = () => {
         transition={{ delay: 0.2, duration: 0.8 }}
       >
         Digital Solutions {" "}
-        by
-        Cedars Tech
+        by Cedars Tech{" "}
+        <span className="font-semibold lg:text-xl text-base">
+          + Streaming Services
+        </span>
       </motion.h1>
 
       <motion.p
