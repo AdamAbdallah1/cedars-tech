@@ -14,7 +14,7 @@
     },
     {
       "source": "/demo/portfolio/(.*)",
-      "destination": "https://portfolio-demo-five-rouge.vercel.app/$1"
+      "destination": "https://portfolio-demo-five-rouge.vercel.app/"
     }
   ]
 }
