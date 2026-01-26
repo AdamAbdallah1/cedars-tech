@@ -33,6 +33,15 @@
     },
 
     {
+      "source": "/demo/restaurant",
+      "destination": "https://restaurant-demo-swart.vercel.app/demo/restaurant"
+    },
+    {
+      "source": "/demo/restaurant/(.*)",
+      "destination": "https://restaurant-demo-swart.vercel.app/demo/restaurant/$1"
+    },
+
+    {
       "source": "/demo/(.*)",
       "destination": "/index.html"
     },
