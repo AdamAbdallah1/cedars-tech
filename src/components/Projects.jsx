@@ -14,16 +14,23 @@ const Projects = () => {
     },
     {
       label: "Demo",
+      title: "Portfolio",
+      desc: "A sleek portfolio website demo to showcase projects and skills.",
+      link: "https://www.cedarstech.info/demo/portfolio/",
+      icon: <FaLaptopCode size={42} className="text-[#9754DE] mb-3" />,
+    },
+    {
+      label: "Demo",
       title: "Restaurant Demo",
       desc: "A responsive restaurant website demo with menu and reservation features.",
-      link: "https://adamabdallah1.github.io/restaurant-demo/",
+      link: "https://www.cedarstech.info/demo/restaurant/",
       icon: <FaLaptopCode size={42} className="text-[#9754DE] mb-3" />,
     },
     {
       label: "Demo",
       title: "Barber Shop Demo",
       desc: "A stylish barber shop website demo with service listings and booking options.",
-      link: "https://adamabdallah1.github.io/barber-demo",
+      link: "https://www.cedarstech.info/demo/barber/",
       icon: <FaLaptopCode size={42} className="text-[#9754DE] mb-3" />,
     },
     {
