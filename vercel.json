@@ -5,16 +5,16 @@
       "destination": "https://streaming-seven-orcin.vercel.app/streaming/$1"
     },
     {
+      "source": "/demo/portfolio/(.*)",
+      "destination": "https://portfolio-demo-five-rouge.vercel.app/$1"
+    },
+    {
       "source": "/demo/(.*)",
       "destination": "/index.html"
     },
     {
       "source": "/(.*)",
       "destination": "/index.html"
-    },
-    {
-      "source": "/demo/portfolio/(.*)",
-      "destination": "https://portfolio-demo-five-rouge.vercel.app/"
     }
   ]
 }
