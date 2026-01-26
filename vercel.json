@@ -24,6 +24,15 @@
     },
 
     {
+      "source": "/demo/barber",
+      "destination": "https://barber-demo-henna.vercel.app/demo/barber"
+    },
+    {
+      "source": "/demo/barber/(.*)",
+      "destination": "https://barber-demo-henna.vercel.app/demo/barber/$1"
+    },
+
+    {
       "source": "/demo/(.*)",
       "destination": "/index.html"
     },
