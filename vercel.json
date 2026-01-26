@@ -15,6 +15,15 @@
     },
 
     {
+      "source": "/demo/coffee-shop",
+      "destination": "https://demo-coffee-shop-alpha.vercel.app/demo/coffee-shop"
+    },
+    {
+      "source": "/demo/coffee-shop/(.*)",
+      "destination": "https://demo-coffee-shop-alpha.vercel.app/demo/coffee-shop/$1"
+    },
+
+    {
       "source": "/demo/(.*)",
       "destination": "/index.html"
     },
