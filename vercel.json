@@ -4,10 +4,16 @@
       "source": "/streaming/(.*)",
       "destination": "https://streaming-seven-orcin.vercel.app/streaming/$1"
     },
+
+    {
+      "source": "/demo/portfolio",
+      "destination": "https://portfolio-demo-three-mu.vercel.app/demo/portfolio"
+    },
     {
       "source": "/demo/portfolio/(.*)",
       "destination": "https://portfolio-demo-three-mu.vercel.app/demo/portfolio/$1"
     },
+
     {
       "source": "/demo/(.*)",
       "destination": "/index.html"
