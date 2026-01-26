@@ -9,6 +9,10 @@
       "destination": "https://portfolio-demo-three-mu.vercel.app/demo/portfolio/$1"
     },
     {
+      "source": "/demo/(.*)",
+      "destination": "/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
