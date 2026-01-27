@@ -1,10 +1,29 @@
 import React from 'react';
 import { FaWhatsapp, FaInstagram, FaPaperPlane } from "react-icons/fa";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 const Contact = () => {
+  const contactMethods = [
+    {
+      name: "WhatsApp",
+      icon: <FaWhatsapp size={24} />,
+      href: "https://wa.me/message/I3EGKHRI2X5EI1",
+      bgColor: "bg-[#25D366]",
+      hoverColor: "hover:bg-green-600",
+      text: "Contact Us on WhatsApp",
+    },
+    {
+      name: "Instagram",
+      icon: <FaInstagram size={24} />,
+      href: "https://www.instagram.com/cedars.tech/",
+      bgColor: "bg-[#9754DE]",
+      hoverColor: "hover:bg-red-300",
+      text: "Contact Us on Instagram",
+    },
+  ];
+
   return (
-    <section className="flex flex-col items-center text-center gap-6 py-50">
+    <section className="flex flex-col items-center text-center gap-6 py-50 px-4">
       
       {/* Icon */}
       <motion.div
@@ -20,9 +39,9 @@ const Contact = () => {
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
         transition={{ duration: 0.5 }}
-        className="lg:text-4xl text-3xl font-bold bg-linear-to-r from-pink-300 via-slate-500 to bg-purple-500 bg-clip-text tracking-tight text-transparent"
+        className="lg:text-4xl text-3xl font-bold bg-gradient-to-r from-pink-300 via-purple-500 to-indigo-500 bg-clip-text text-transparent tracking-tight"
       >
-        Contact Us
+        Get in Touch
       </motion.h1>
 
       {/* Subtitle */}
@@ -32,7 +51,7 @@ const Contact = () => {
         transition={{ duration: 1 }}
         className="lg:text-[20px] text-gray-400 max-w-xl"
       >
-        Ready to grow your business online? Choose your preferred channel!
+        Ready to grow your business online? Choose your preferred channel and start a conversation with us now.
       </motion.p>
 
       {/* Buttons */}
@@ -41,31 +60,55 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: -100 }}
           transition={{ duration: 0.5 }}
-          className='flex lg:flex-row flex-col gap-6'
+          className='flex flex-col sm:flex-row gap-4 lg:gap-6 w-full max-w-xl justify-center'
         >
-          {/* WhatsApp Button */}
-          <a 
-            href="https://wa.me/message/I3EGKHRI2X5EI1" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className='flex justify-center items-center gap-2 bg-[#9754DE] hover:bg-red-300 text-white font-bold px-6 py-3 rounded-2xl transition-all duration-300'
-          >
-            Contact Us on <FaWhatsapp size={24}/>
-          </a>
-
-          {/* Instagram Button */}
-          <a 
-            href="https://www.instagram.com/cedars.tech/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className='flex justify-center items-center gap-2 bg-[#9754DE] hover:bg-red-300 text-white font-bold px-6 py-3 rounded-2xl transition-all duration-300'
-          >
-            Contact Us on <FaInstagram size={24}/>
-          </a>
+          {contactMethods.map((method, index) => (
+            <a
+              key={index}
+              href={method.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`w-full sm:w-auto text-center flex justify-center items-center gap-2 ${method.bgColor} ${method.hoverColor} text-white font-semibold px-6 py-3 rounded-2xl transition-all duration-300`}
+            >
+              {method.text} {method.icon}
+            </a>
+          ))}
         </motion.div>
       </div>
+
+      {/* Optional lead capture */}
+      <motion.div
+        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 50 }}
+        transition={{ duration: 1, delay: 0.3 }}
+        className="mt-12 w-full max-w-md text-center"
+      >
+        <p className="text-gray-400 mb-4">
+          Or leave your email and we will get back to you with a free consultation.
+        </p>
+        <form
+          className="flex flex-col sm:flex-row gap-3"
+          onSubmit={(e) => {
+            e.preventDefault();
+            alert('Thank you! We will contact you soon.');
+          }}
+        >
+          <input
+            type="email"
+            placeholder="Your Email"
+            required
+            className="w-full sm:flex-1 px-4 py-3 rounded-xl border border-gray-600 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-[#9754DE]"
+          />
+          <button
+            type="submit"
+            className="w-full sm:w-auto bg-[#9754DE] hover:bg-purple-500 text-white font-semibold px-6 py-3 rounded-2xl transition-all duration-300"
+          >
+            Send
+          </button>
+        </form>
+      </motion.div>
     </section>
   );
-}
+};
 
 export default Contact;
