@@ -6,6 +6,7 @@ import Loader from './components/Loader';
 
 const Offer = React.lazy(() => import('./components/Offer'));
 const Projects = React.lazy(() => import('./components/Projects'));
+const LiveChat = React.lazy(() => import('./components/LiveChat'));
 const Contact = React.lazy(() => import('./components/Contact'));
 const Footer = React.lazy(() => import('./components/Footer'));
 const ScrollToTop = React.lazy(() => import('./components/ScrollToTop'));
@@ -72,10 +73,9 @@ function App() {
             <Footer />
           </div>
 
-          <ScrollToTop />
           <CookieBar />
           <NotificationBar />
-          <Feedback />
+          <LiveChat />
         </Suspense>
       )}
     </div>

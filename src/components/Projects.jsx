@@ -80,7 +80,7 @@ const Projects = () => {
   ];
 
   return (
-    <section className="py-32 flex flex-col items-center gap-12 text-center">
+    <section id="projects" className="py-32 flex flex-col items-center gap-12 text-center">
       <motion.h1
         initial={{ opacity: 0, y: -60 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -102,25 +102,24 @@ const Projects = () => {
           desc: (
             <>
               {p.desc}
-              <div className="mt-3 flex flex-col sm:flex-row justify-center gap-3">
-  <a
-    href={p.link}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-full sm:w-auto text-center px-6 py-3 text-white bg-[#9754DE] hover:bg-[#b19eef] rounded-2xl font-semibold transition-colors"
-  >
-    View Demo
-  </a>
-  <a
-    href={`https://wa.me/message/I3EGKHRI2X5EI1?text=${encodeURIComponent(p.whatsappText)}`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-full sm:w-auto text-center px-6 py-3 text-white bg-green-500 hover:bg-green-600 rounded-2xl font-semibold transition-colors"
-  >
-    Get This Website
-  </a>
-</div>
-
+              <div className="mt-3 flex flex-col sm:flex-row justify-center gap-2">
+                <a
+                  href={p.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex justify-center items-center px-3 py-1.5 text-white bg-[#9754DE] hover:bg-[#b19eef] rounded-md font-medium text-[12px] sm:text-sm transition-all duration-300"
+                >
+                  View Demo
+                </a>
+                <a
+                  href={`https://wa.me/96181090757?text=${encodeURIComponent(p.whatsappText)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex justify-center items-center px-3 py-1.5 text-white bg-green-500 hover:bg-green-600 rounded-md font-medium text-[12px] sm:text-sm transition-all duration-300"
+                >
+                  Get This Website
+                </a>
+              </div>
             </>
           ),
           onClick: () => window.open(p.link, "_blank"),

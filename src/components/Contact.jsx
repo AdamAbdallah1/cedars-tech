@@ -7,7 +7,7 @@ const Contact = () => {
     {
       name: "WhatsApp",
       icon: <FaWhatsapp size={24} />,
-      href: "https://wa.me/message/I3EGKHRI2X5EI1",
+      href: "https://wa.me/96181090757",
       bgColor: "bg-[#25D366]",
       hoverColor: "hover:bg-green-600",
       text: "Contact Us on WhatsApp",
@@ -23,7 +23,7 @@ const Contact = () => {
   ];
 
   return (
-    <section className="flex flex-col items-center text-center gap-6 py-50 px-4">
+    <section id='contact' className="flex flex-col items-center text-center gap-6 py-50 px-4">
       
       {/* Icon */}
       <motion.div
@@ -76,7 +76,6 @@ const Contact = () => {
         </motion.div>
       </div>
 
-      {/* Optional lead capture */}
       <motion.div
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: 50 }}

@@ -39,7 +39,7 @@ const Offer = () => {
   ];
 
   return (
-    <section className="py-32 flex flex-col items-center gap-12 text-center px-4">
+    <section id="offer" className="py-32 flex flex-col items-center gap-12 text-center px-4">
       <motion.h1
         initial={{ opacity: 0, y: -60 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -63,7 +63,7 @@ const Offer = () => {
               {s.desc}
               <div className="mt-3 flex flex-col sm:flex-row justify-center gap-3">
                 <a
-                  href={`https://wa.me/message/I3EGKHRI2X5EI1?text=${encodeURIComponent(s.whatsappText)}`}
+                  href={`https://wa.me/96181090757?text=${encodeURIComponent(s.whatsappText)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto flex justify-center items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-5 py-2 rounded-2xl transition-all duration-300"
