@@ -1,15 +1,61 @@
-import React from 'react'
-import { FaInstagram } from "react-icons/fa";
-import { FaWhatsapp } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
-import { FaTiktok } from "react-icons/fa";
+import React from 'react';
+import { motion } from 'motion/react';
+import { FaInstagram, FaWhatsapp, FaFacebook, FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
-  return (
-    <footer className="text-white text-center p-5 pt-20 lg:text-2xl flex flex-col gap-5">
-      © {new Date().getFullYear()} Cedars Tech. All rights reserved.
-    </footer>
-  )
-}
+  const currentYear = new Date().getFullYear();
+  
+  const socialLinks = [
+    { name: 'Instagram', icon: FaInstagram, href: 'https://www.instagram.com/cedars.tech/', color: 'hover:text-pink-400' },
+    { name: 'WhatsApp', icon: FaWhatsapp, href: 'https://wa.me/96181090757', color: 'hover:text-green-400' },
+    { name: 'Facebook', icon: FaFacebook, href: '#', color: 'hover:text-blue-400' },
+    { name: 'TikTok', icon: FaTiktok, href: '#', color: 'hover:text-purple-400' },
+  ];
 
-export default Footer
+  return (
+    <footer className="text-white text-center py-12 lg:py-16 px-4" role="contentinfo">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="flex flex-col items-center gap-6"
+      >
+        {/* Social Links */}
+        <div className="flex gap-6 text-3xl" aria-label="Social media links">
+          {socialLinks.map((social, index) => (
+            <a
+              key={index}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`transition-all duration-300 ${social.color} p-2 rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#9754DE]/50`}
+              aria-label={social.name}
+              data-testid={`footer-${social.name.toLowerCase()}-link`}
+            >
+              <social.icon />
+            </a>
+          ))}
+        </div>
+
+        {/* Quick Links */}
+        <nav className="flex flex-wrap justify-center gap-4 lg:gap-6 text-gray-400" aria-label="Footer navigation">
+          <a href="#hero" className="hover:text-[#9754DE] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#9754DE]/50 rounded px-2 py-1">Home</a>
+          <a href="#offer" className="hover:text-[#9754DE] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#9754DE]/50 rounded px-2 py-1">Services</a>
+          <a href="#projects" className="hover:text-[#9754DE] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#9754DE]/50 rounded px-2 py-1">Projects</a>
+          <a href="#contact" className="hover:text-[#9754DE] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#9754DE]/50 rounded px-2 py-1">Contact</a>
+        </nav>
+
+        {/* Divider */}
+        <div className="w-full max-w-md h-px bg-white/10 my-2" />
+
+        {/* Copyright */}
+        <p className="text-gray-400 text-sm lg:text-base">
+          © {currentYear} Cedars Tech. All rights reserved.
+        </p>
+      </motion.div>
+    </footer>
+  );
+};
+
+export default Footer;

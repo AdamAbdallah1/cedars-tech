@@ -80,60 +80,77 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-32 flex flex-col items-center gap-12 text-center">
+    <section id="projects" className="py-20 lg:py-32 flex flex-col items-center gap-8 lg:gap-12 text-center px-4">
       <motion.h1
         initial={{ opacity: 0, y: -60 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="lg:text-5xl text-3xl font-bold bg-linear-to-r from-pink-300 via-purple-400 to-indigo-500 bg-clip-text text-transparent"
+        viewport={{ once: true }}
+        className="text-3xl lg:text-5xl font-bold bg-gradient-to-r from-pink-300 via-purple-400 to-indigo-500 bg-clip-text text-transparent"
       >
         Demos & Projects
       </motion.h1>
 
-      <p className="max-w-2xl text-gray-400 text-lg">
+      <motion.p 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="max-w-2xl text-gray-400 text-base lg:text-lg px-4"
+      >
         Explore the projects and demos we have built for our clients and personal experiments.
-      </p>
+      </motion.p>
 
-      <div className="w-24 h-0.5 bg-white/20 rounded-full my-6" />
+      <div className="w-24 h-0.5 bg-white/20 rounded-full my-2 lg:my-6" />
 
-      <MagicBento
-        items={projects.map(p => ({
-          ...p,
-          desc: (
-            <>
-              {p.desc}
-              <div className="mt-3 flex flex-col sm:flex-row justify-center gap-2">
-                <a
-                  href={p.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex justify-center items-center px-3 py-1.5 text-white bg-[#9754DE] hover:bg-[#b19eef] rounded-md font-medium text-[12px] sm:text-sm transition-all duration-300"
-                >
-                  View Demo
-                </a>
-                <a
-                  href={`https://wa.me/96181090757?text=${encodeURIComponent(p.whatsappText)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex justify-center items-center px-3 py-1.5 text-white bg-green-500 hover:bg-green-600 rounded-md font-medium text-[12px] sm:text-sm transition-all duration-300"
-                >
-                  Get This Website
-                </a>
-              </div>
-            </>
-          ),
-          onClick: () => window.open(p.link, "_blank"),
-        }))}
-        enableStars
-        enableSpotlight
-        enableBorderGlow
-        enableTilt
-        enableMagnetism
-        clickEffect
-        particleCount={12}
-        spotlightRadius={300}
-        glowColor="151, 84, 222"
-      />
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+        viewport={{ once: true }}
+        className="w-full"
+      >
+        <MagicBento
+          items={projects.map(p => ({
+            ...p,
+            desc: (
+              <>
+                {p.desc}
+                <div className="mt-4 flex flex-col sm:flex-row justify-center gap-2">
+                  <a
+                    href={p.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex justify-center items-center px-4 py-2 text-white bg-[#9754DE] hover:bg-[#b19eef] rounded-xl font-medium text-sm transition-all duration-300 hover:scale-105"
+                    data-testid={`view-demo-${p.title.toLowerCase().replace(/\s+/g, '-')}`}
+                  >
+                    View Demo
+                  </a>
+                  <a
+                    href={`https://wa.me/96181090757?text=${encodeURIComponent(p.whatsappText)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex justify-center items-center px-4 py-2 text-white bg-green-500 hover:bg-green-600 rounded-xl font-medium text-sm transition-all duration-300 hover:scale-105"
+                    data-testid={`get-website-${p.title.toLowerCase().replace(/\s+/g, '-')}`}
+                  >
+                    Get This Website
+                  </a>
+                </div>
+              </>
+            ),
+            onClick: () => window.open(p.link, "_blank"),
+          }))}
+          enableStars
+          enableSpotlight
+          enableBorderGlow
+          enableTilt
+          enableMagnetism
+          clickEffect
+          particleCount={12}
+          spotlightRadius={300}
+          glowColor="151, 84, 222"
+        />
+      </motion.div>
     </section>
   );
 };
