@@ -10,6 +10,15 @@
       "destination": "https://portfolio-demo-three-mu.vercel.app/demo/portfolio"
     },
     {
+      "source": "/demo/dental-clinic",
+      "destination": "https://dental-clinic-pi-five.vercel.app/"
+    },
+    {
+      "source": "/demo/dental-clinic/(.*)",
+      "destination": "https://dental-clinic-pi-five.vercel.app/$1"
+    },
+
+    {
       "source": "/demo/portfolio/(.*)",
       "destination": "https://portfolio-demo-three-mu.vercel.app/demo/portfolio/$1"
     },
