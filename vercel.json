@@ -8,7 +8,6 @@
       "source": "/leads/(.*)",
       "destination": "https://cedars-leads-gen.vercel.app/leads/$1"
     },
-
     {
       "source": "/streaming/(.*)",
       "destination": "https://streaming-seven-orcin.vercel.app/streaming/$1"
@@ -19,16 +18,16 @@
       "destination": "https://portfolio-demo-three-mu.vercel.app/demo/portfolio"
     },
     {
+      "source": "/demo/portfolio/(.*)",
+      "destination": "https://portfolio-demo-three-mu.vercel.app/demo/portfolio/$1"
+    },
+    {
       "source": "/demo/dental-clinic",
       "destination": "https://dental-clinic-pi-five.vercel.app/"
     },
     {
       "source": "/demo/dental-clinic/(.*)",
       "destination": "https://dental-clinic-pi-five.vercel.app/$1"
-    },
-    {
-      "source": "/demo/portfolio/(.*)",
-      "destination": "https://portfolio-demo-three-mu.vercel.app/demo/portfolio/$1"
     },
     {
       "source": "/demo/coffee-shop",
@@ -54,6 +53,16 @@
       "source": "/demo/restaurant/(.*)",
       "destination": "https://restaurant-demo-swart.vercel.app/demo/restaurant/$1"
     },
+
+    {
+      "source": "/demo/pet-care",
+      "destination": "https://pet-care-blue-five.vercel.app/demo/pet-care"
+    },
+    {
+      "source": "/demo/pet-care/(.*)",
+      "destination": "https://pet-care-blue-five.vercel.app/demo/pet-care/$1"
+    },
+
     {
       "source": "/demo/(.*)",
       "destination": "/index.html"
