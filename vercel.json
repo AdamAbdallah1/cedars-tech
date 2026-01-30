@@ -71,7 +71,14 @@
       "source": "/demo/event-plan/(.*)",
       "destination": "https://event-plan-six.vercel.app/demo/event-plan/$1"
     },
-
+    {
+      "source": "/demo/travel-tourism",
+      "destination": "https://travel-tourism-nine.vercel.app/demo/travel-tourism"
+    },
+    {
+      "source": "/demo/travel-tourism/(.*)",
+      "destination": "https://travel-tourism-nine.vercel.app/demo/travel-tourism/$1"
+    },
     {
       "source": "/demo/(.*)",
       "destination": "/index.html"
