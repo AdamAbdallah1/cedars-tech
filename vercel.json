@@ -64,6 +64,15 @@
     },
 
     {
+      "source": "/demo/event-plan",
+      "destination": "https://event-plan-six.vercel.app/demo/event-plan"
+    },
+    {
+      "source": "/demo/event-plan/(.*)",
+      "destination": "https://event-plan-six.vercel.app/demo/event-plan/$1"
+    },
+
+    {
       "source": "/demo/(.*)",
       "destination": "/index.html"
     },
