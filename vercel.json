@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/api/generate-stream",
+      "destination": "https://cedars-leads-gen.vercel.app/api/generate-stream"
+    },
+    {
       "source": "/leads/(.*)",
       "destination": "https://cedars-leads-gen.vercel.app/leads/$1"
     },
