@@ -1,6 +1,11 @@
 {
   "rewrites": [
     {
+      "source": "/leads/(.*)",
+      "destination": "https://cedars-leads-gen.vercel.app/leads/$1"
+    },
+
+    {
       "source": "/streaming/(.*)",
       "destination": "https://streaming-seven-orcin.vercel.app/streaming/$1"
     },
@@ -17,12 +22,10 @@
       "source": "/demo/dental-clinic/(.*)",
       "destination": "https://dental-clinic-pi-five.vercel.app/$1"
     },
-
     {
       "source": "/demo/portfolio/(.*)",
       "destination": "https://portfolio-demo-three-mu.vercel.app/demo/portfolio/$1"
     },
-
     {
       "source": "/demo/coffee-shop",
       "destination": "https://demo-coffee-shop-alpha.vercel.app/demo/coffee-shop"
@@ -31,7 +34,6 @@
       "source": "/demo/coffee-shop/(.*)",
       "destination": "https://demo-coffee-shop-alpha.vercel.app/demo/coffee-shop/$1"
     },
-
     {
       "source": "/demo/barber",
       "destination": "https://barber-demo-henna.vercel.app/demo/barber"
@@ -40,7 +42,6 @@
       "source": "/demo/barber/(.*)",
       "destination": "https://barber-demo-henna.vercel.app/demo/barber/$1"
     },
-
     {
       "source": "/demo/restaurant",
       "destination": "https://restaurant-demo-swart.vercel.app/demo/restaurant"
@@ -49,7 +50,6 @@
       "source": "/demo/restaurant/(.*)",
       "destination": "https://restaurant-demo-swart.vercel.app/demo/restaurant/$1"
     },
-
     {
       "source": "/demo/(.*)",
       "destination": "/index.html"
