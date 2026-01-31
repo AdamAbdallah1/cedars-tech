@@ -72,6 +72,14 @@
       "destination": "https://event-plan-six.vercel.app/demo/event-plan/$1"
     },
     {
+      "source": "/demo/logistics",
+      "destination": "https://logistics-transport-taupe.vercel.app/demo/logistics"
+    },
+    {
+      "source": "/demo/logistics/(.*)",
+      "destination": "https://logistics-transport-taupe.vercel.app/demo/logistics/$1"
+    },
+    {
       "source": "/demo/travel-tourism",
       "destination": "https://travel-tourism-nine.vercel.app/demo/travel-tourism"
     },

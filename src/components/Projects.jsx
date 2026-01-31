@@ -1,10 +1,19 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaLaptopCode, FaCut, FaCoffee, FaPlane, FaCalendarAlt, FaTooth, FaUtensils, FaHammer, FaPaw, FaUserTie } from "react-icons/fa";
+import { FaLaptopCode, FaCut, FaCoffee, FaPlane, FaCalendarAlt, FaTooth, FaUtensils, FaHammer, FaPaw, FaUserTie, FaTruckMoving } from "react-icons/fa";
 import MagicBento from "./MagicBento";
 
 const Projects = () => {
   const projects = [
+    {
+      label: "Demo",
+      title: "Logistics & Transport",
+      desc: "End-to-end logistics and transport solutions with fast delivery, secure handling, and global coverage for businesses of all sizes.",
+      link: "https://cedarstech.info/demo/logistics",
+      whatsappText: "I'm interested in the Logistecs and Transport demo for my business.",
+      icon: <FaTruckMoving size={42} className="text-blue-600 mb-3 "/>,
+      glow: "197, 160, 89",
+    },
     {
       label: "Demo",
       title: "Barber Shop",
@@ -132,7 +141,6 @@ const Projects = () => {
         <MagicBento
           items={projects.map(p => ({
             ...p,
-            // Customizing the content inside MagicBento
             desc: (
               <div className="flex flex-col h-full">
                 <span className={`text-[10px] uppercase tracking-[0.2em] font-bold mb-2 ${p.label === 'Client' ? 'text-blue-400' : 'text-emerald-400'}`}>
@@ -161,7 +169,6 @@ const Projects = () => {
                 </div>
               </div>
             ),
-            // Override the glow color per project
             glowColor: p.glow,
             onClick: () => window.open(p.link, "_blank"),
           }))}
