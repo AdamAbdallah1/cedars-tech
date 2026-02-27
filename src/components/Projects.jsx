@@ -1,173 +1,175 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaLaptopCode, FaCut, FaCoffee, FaPlane, FaCalendarAlt, FaTooth, FaUtensils, FaHammer, FaPaw, FaUserTie, FaTruckMoving } from "react-icons/fa";
+import { 
+  FaLaptopCode, FaCut, FaCoffee, FaPlane, 
+  FaTooth, FaUtensils, FaUserTie, FaTruckMoving 
+} from "react-icons/fa";
 import MagicBento from "./MagicBento";
 
 const Projects = () => {
   const projects = [
     {
       label: "Demo",
-      title: "Logistics & Transport",
-      desc: "End-to-end logistics and transport solutions with fast delivery, secure handling, and global coverage for businesses of all sizes.",
+      title: "Logistics",
+      desc: "End-to-end logistics solutions.",
       link: "https://cedarstech.info/demo/logistics",
-      whatsappText: "I'm interested in the Logistecs and Transport demo for my business.",
-      icon: <FaTruckMoving size={42} className="text-blue-600 mb-3 "/>,
-      glow: "197, 160, 89",
+      whatsappText: "I'm interested in the Logistics demo.",
+      icon: <FaTruckMoving size={18} />,
+      glow: "59, 130, 246",
     },
     {
       label: "Demo",
       title: "Barber Shop",
-      desc: "Premium, bold landing page for modern barbers. Masculine aesthetic with seamless booking flow.",
+      desc: "Premium page for modern barbers.",
       link: "https://cedarstech.info/demo/barber",
-      whatsappText: "I'm interested in the Barber Shop demo for my business.",
-      icon: <FaCut size={42} className="text-[#C5A059] mb-3" />, // Gold
+      whatsappText: "I'm interested in the Barber Shop demo.",
+      icon: <FaCut size={18} />,
       glow: "197, 160, 89",
     },
     {
+      label: "Client",
+      title: "ABC Qatar",
+      desc: "Enterprise site for Qatari market.",
+      link: "http://www.abcqatar.com/",
+      whatsappText: "I'm interested in a project like ABC Qatar.",
+      icon: <FaLaptopCode size={18} />,
+      glow: "255, 255, 255",
+    },
+    {
       label: "Demo",
-      title: "Creative Portfolio",
-      desc: "Cinematic developer portfolio. Clean, professional, and built for high-end creative impact.",
+      title: "Portfolio",
+      desc: "Cinematic high-end impact.",
       link: "https://cedarstech.info/demo/portfolio",
-      whatsappText: "I want a professional portfolio like your demo.",
-      icon: <FaUserTie size={42} className="text-[#6366f1] mb-3" />, // Indigo
+      whatsappText: "I want a professional portfolio.",
+      icon: <FaUserTie size={18} />,
       glow: "99, 102, 241",
     },
     {
       label: "Demo",
       title: "Mugs Coffee",
-      desc: "Cozy and stylish café experience. Warm atmosphere with elegant product showcases.",
+      desc: "Cozy café showcase.",
       link: "https://cedarstech.info/demo/coffee-shop",
       whatsappText: "I'm interested in the Coffee Shop demo.",
-      icon: <FaCoffee size={42} className="text-[#7C2D12] mb-3" />, // Warm Coffee
+      icon: <FaCoffee size={18} />,
       glow: "124, 45, 18",
     },
     {
       label: "Demo",
-      title: "Travel & Tourism",
-      desc: "High-end travel agency site. Cinematic visuals, destination grids, and luxury booking.",
+      title: "Travel",
+      desc: "High-end agency visuals.",
       link: "https://cedarstech.info/demo/travel-tourism",
-      whatsappText: "I love the Travel & Tourism demo. Can we customize it?",
-      icon: <FaPlane size={42} className="text-[#10b981] mb-3" />, // Emerald
+      whatsappText: "I love the Travel demo.",
+      icon: <FaPlane size={18} />,
       glow: "16, 185, 129",
     },
     {
       label: "Demo",
-      title: "Event Planning",
-      desc: "Elegant luxury feel for weddings and corporate events. Sophisticated gallery and services.",
-      link: "https://cedarstech.info/demo/event-planner",
-      whatsappText: "I'm interested in the Event Planner website.",
-      icon: <FaCalendarAlt size={42} className="text-[#EC4899] mb-3" />, // Pink
-      glow: "236, 72, 153",
-    },
-    {
-      label: "Demo",
-      title: "Dental Clinic",
-      desc: "Clean, trustworthy medical interface. Focused on clarity, professionalism, and patient trust.",
-      link: "https://cedarstech.info/demo/dental-clinic",
-      whatsappText: "I need a website for a clinic like your Dental demo.",
-      icon: <FaTooth size={42} className="text-[#0EA5E9] mb-3" />, // Sky Blue
-      glow: "14, 165, 233",
-    },
-    {
-      label: "Demo",
-      title: "Modern Restaurant",
-      desc: "Appetizing food presentation and menu layouts. Built to drive table reservations.",
+      title: "Restaurant",
+      desc: "Appetizing food presentations.",
       link: "https://cedarstech.info/demo/restaurant",
-      whatsappText: "I'm interested in the Restaurant landing page.",
-      icon: <FaUtensils size={42} className="text-[#F59E0B] mb-3" />, // Amber
+      whatsappText: "I'm interested in the Restaurant page.",
+      icon: <FaUtensils size={18} />,
       glow: "245, 158, 11",
     },
     {
       label: "Demo",
-      title: "Construction & Reno",
-      desc: "Strong, reliable, and premium. Showcasing craftsmanship and project management.",
-      link: "https://cedarstech.info/demo/renovate",
-      whatsappText: "I'm interested in the Renovation/Construction demo.",
-      icon: <FaHammer size={42} className="text-[#EF4444] mb-3" />, // Red
-      glow: "239, 68, 68",
+      title: "Clinic",
+      desc: "Clean medical interface.",
+      link: "https://cedarstech.info/demo/dental-clinic",
+      whatsappText: "I need a website for a clinic.",
+      icon: <FaTooth size={18} />,
+      glow: "14, 165, 233",
     },
-    {
-      label: "Demo",
-      title: "Pet Care & Clinic",
-      desc: "Friendly and emotional grooming/vet site. Modern visuals for pet lovers.",
-      link: "https://cedarstech.info/demo/pet-care",
-      whatsappText: "I'm interested in the Pet Care website demo.",
-      icon: <FaPaw size={42} className="text-[#8B5CF6] mb-3" />, // Violet
-      glow: "139, 92, 246",
-    },
-    {
-      label: "Client",
-      title: "ABC Qatar",
-      desc: "Professional enterprise business website tailored for the Qatari market.",
-      link: "http://www.abcqatar.com/",
-      whatsappText: "I'm interested in a business project like ABC Qatar.",
-      icon: <FaLaptopCode size={42} className="text-white/50 mb-3" />,
-      glow: "255, 255, 255",
-    }
   ];
 
   return (
-    <section id="projects" className="py-20 lg:py-32 flex flex-col items-center gap-8 lg:gap-12 text-center px-4 ">
+    <section id="projects" className="py-28 px-6 lg:px-8 max-w-6xl mx-auto">
+      
+      {/* HEADER */}
+      <div className="flex flex-col items-start text-left mb-20">
+        <h2 className="text-sm uppercase tracking-[0.35em] text-[#9754DE] font-semibold mb-4">
+          Portfolio
+        </h2>
+
+        <h3 className="text-3xl lg:text-5xl font-bold text-white max-w-2xl leading-tight">
+          Selected work that{" "}
+          <span className="text-gray-500">drives real results.</span>
+        </h3>
+      </div>
+
+      {/* GRID */}
       <motion.div
-        initial={{ opacity: 0, y: -20 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <motion.h2
-                initial={{ opacity: 0, y: -60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-                viewport={{ once: true }}
-                className="text-3xl lg:text-5xl font-bold bg-gradient-to-r from-pink-300 via-purple-400 to-indigo-500 bg-clip-text text-transparent"
-              >
-                Demos & Projects
-              </motion.h2>
-        <p className="max-w-2xl text-gray-400 text-base lg:text-lg px-4 mt-4 font-medium">
-          Premium demos and client projects crafted by <span className="text-white">Cedars Tech</span>. 
-          Ready-to-deploy solutions for your business.
-        </p>
-      </motion.div>
-
-      <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#9754DE] to-transparent rounded-full my-4" />
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-        className="w-full max-w-[1400px]"
+        transition={{ duration: 0.6 }}
       >
         <MagicBento
-          items={projects.map(p => ({
+          items={projects.map((p) => ({
             ...p,
             desc: (
-              <div className="flex flex-col h-full">
-                <span className={`text-[10px] uppercase tracking-[0.2em] font-bold mb-2 ${p.label === 'Client' ? 'text-blue-400' : 'text-emerald-400'}`}>
-                   {p.label}
-                </span>
-                <p className="text-gray-400 text-xs md:text-sm leading-relaxed mb-6">
-                  {p.desc}
-                </p>
-                <div className="mt-auto flex flex-col gap-3">
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="relative flex flex-col h-full p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] transition-all duration-500 hover:border-white/20"
+              >
+                {/* subtle glow */}
+                <div 
+                  className="absolute inset-0 opacity-0 hover:opacity-100 transition duration-500 blur-2xl"
+                  style={{ background: `rgba(${p.glow},0.15)` }}
+                />
+
+                {/* TOP */}
+                <div className="flex justify-between items-center mb-5 relative z-10">
+                  <div className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#9754DE]">
+                    {p.icon}
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <span className={`w-1.5 h-1.5 rounded-full ${
+                      p.label === "Client" ? "bg-blue-400" : "bg-emerald-400"
+                    }`} />
+
+                    <span className={`text-[10px] px-2 py-0.5 rounded-md uppercase tracking-widest font-semibold border ${
+                      p.label === "Client"
+                        ? "text-blue-400 border-blue-400/30 bg-blue-400/10"
+                        : "text-emerald-400 border-emerald-400/30 bg-emerald-400/10"
+                    }`}>
+                      {p.label}
+                    </span>
+                  </div>
+                </div>
+
+                {/* CONTENT */}
+                <div className="relative z-10">
+                  <h4 className="text-lg font-semibold text-white mb-2">
+                    {p.title}
+                  </h4>
+
+                  <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                    {p.desc}
+                  </p>
+                </div>
+
+                {/* ACTIONS */}
+                <div className="mt-auto flex gap-2 relative z-10">
                   <a
                     href={p.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex justify-center items-center w-full py-3 text-white border border-white/10 bg-white/5 hover:bg-white hover:text-black rounded-xl font-bold text-xs uppercase tracking-widest transition-all duration-500"
+                    className="flex-1 flex justify-center items-center py-2.5 rounded-xl bg-white text-black font-semibold text-xs uppercase tracking-wide hover:scale-[1.03] active:scale-[0.98] transition"
                   >
-                    Launch Demo
+                    View
                   </a>
+
                   <a
                     href={`https://wa.me/96181090757?text=${encodeURIComponent(p.whatsappText)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex justify-center items-center w-full py-3 text-white bg-green-600 hover:bg-green-500 rounded-xl font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-lg shadow-green-900/20"
+                    className="flex-1 flex justify-center items-center py-2.5 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-xs uppercase tracking-wide hover:bg-white/10 hover:scale-[1.03] active:scale-[0.98] transition"
                   >
-                    Get This Site
+                    Order
                   </a>
                 </div>
-              </div>
+              </motion.div>
             ),
             glowColor: p.glow,
             onClick: () => window.open(p.link, "_blank"),
@@ -175,11 +177,10 @@ const Projects = () => {
           enableStars
           enableSpotlight
           enableBorderGlow
-          enableTilt
-          enableMagnetism
-          clickEffect
-          particleCount={15}
-          spotlightRadius={250}
+          enableTilt={false}
+          enableMagnetism={false}
+          particleCount={8}
+          spotlightRadius={120}
         />
       </motion.div>
     </section>

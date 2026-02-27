@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaCookieBite } from 'react-icons/fa';
 
 const CookieBar = () => {
   const [show, setShow] = useState(false);
@@ -7,7 +8,7 @@ const CookieBar = () => {
   useEffect(() => {
     const accepted = localStorage.getItem('cookiesAccepted');
     if (!accepted) {
-      const timer = setTimeout(() => setShow(true), 1000);
+      const timer = setTimeout(() => setShow(true), 2000); // Wait 2s so it doesn't pop immediately
       return () => clearTimeout(timer);
     }
   }, []);
@@ -26,36 +27,43 @@ const CookieBar = () => {
     <AnimatePresence>
       {show && (
         <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 100, opacity: 0 }}
-          transition={{ duration: 0.4, type: "spring" }}
-          className="fixed bottom-0 left-0 w-full bg-gradient-to-r from-[#9754DE] via-purple-600 to-indigo-600 text-white p-4 lg:p-6 flex flex-col lg:flex-row items-center justify-between gap-4 shadow-2xl z-50 border-t border-white/20"
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: -50, opacity: 0 }}
+          transition={{ duration: 0.5, type: "spring", damping: 20 }}
+          className="fixed bottom-6 left-6 z-[100] max-w-[380px] w-[calc(100%-3rem)]"
           role="dialog"
           aria-label="Cookie consent"
         >
-          <div className="flex-1 max-w-3xl">
-            <p className="text-sm lg:text-base text-center lg:text-left">
-              🍪 We use cookies to ensure you get the best experience on our website. By continuing to use our site, you accept our use of cookies.
-            </p>
-          </div>
-          <div className='flex gap-3 lg:gap-4 flex-row flex-shrink-0'>
-            <button
-              onClick={handleAccept}
-              className="bg-white text-[#9754DE] font-bold px-6 py-2.5 rounded-xl hover:bg-gray-100 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-purple-600"
-              aria-label="Accept cookies"
-              data-testid="accept-cookies-btn"
-            >
-              Accept
-            </button>
-            <button
-              onClick={handleDeny}
-              className="bg-white/10 backdrop-blur-sm text-white font-bold px-6 py-2.5 rounded-xl hover:bg-white/20 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-purple-600 border border-white/30"
-              aria-label="Deny cookies"
-              data-testid="deny-cookies-btn"
-            >
-              Deny
-            </button>
+          <div className="bg-black/80 backdrop-blur-2xl border border-white/10 p-6 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="p-3 bg-purple-500/10 rounded-2xl">
+                <FaCookieBite className="text-[#9754DE]" size={24} />
+              </div>
+              <div>
+                <h4 className="text-white font-bold text-lg leading-tight">Cookie Policy</h4>
+                <p className="text-gray-400 text-xs mt-1 leading-relaxed">
+                  We use cookies to enhance your experience and analyze our traffic.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              <button
+                onClick={handleAccept}
+                className="flex-1 bg-white text-black font-bold py-3 rounded-xl text-xs uppercase tracking-widest hover:bg-gray-200 transition-all active:scale-95"
+                data-testid="accept-cookies-btn"
+              >
+                Accept
+              </button>
+              <button
+                onClick={handleDeny}
+                className="flex-1 bg-white/5 border border-white/10 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-widest hover:bg-white/10 transition-all active:scale-95"
+                data-testid="deny-cookies-btn"
+              >
+                Decline
+              </button>
+            </div>
           </div>
         </motion.div>
       )}

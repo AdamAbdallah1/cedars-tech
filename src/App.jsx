@@ -1,83 +1,44 @@
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ProgressBar from './components/ProgressBar';
 import Loader from './components/Loader';
+import Offer from './components/Offer';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
-const Offer = React.lazy(() => import('./components/Offer'));
-const Projects = React.lazy(() => import('./components/Projects'));
+// Lazy only non-critical
 const LiveChat = React.lazy(() => import('./components/LiveChat'));
-const Contact = React.lazy(() => import('./components/Contact'));
-const Footer = React.lazy(() => import('./components/Footer'));
-const ScrollToTop = React.lazy(() => import('./components/ScrollToTop'));
 const CookieBar = React.lazy(() => import('./components/CookieBar'));
 const NotificationBar = React.lazy(() => import('./components/NotificationBar'));
-const Feedback = React.lazy(() => import('./components/Feedback'));
-const LiquidEther = React.lazy(() => import('./components/LiquidEther'));
 
 function App() {
-  const [loading, setLoading] = useState(true);
-  const [showLiquidEther, setShowLiquidEther] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    if (!loading) {
-      const heroTimer = setTimeout(() => setShowLiquidEther(true), 500);
-      return () => clearTimeout(heroTimer);
-    }
-  }, [loading]);
-
   return (
-    <div className="relative min-h-screen overflow-x-hidden text-neutral-300 antialiased selection:bg-cyan-300 selection:text-cyan-900">
-      {loading && <Loader />}
+    <div className="relative min-h-screen bg-[#050505] text-neutral-300 antialiased selection:bg-purple-500/30 selection:text-white">
+      
+      <ProgressBar />
 
-      {!loading && (
-        <Suspense fallback={<Loader />}>
-          <ProgressBar />
+      {/* Background */}
+      <div className="fixed inset-0 -z-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-[#050505] to-black" />
 
+      {/* Main content (NO suspense needed) */}
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <Navbar />
+        <Hero />
+        <Offer />
+        <Projects />
+        <Contact />
+        <Footer />
+      </div>
 
-          {showLiquidEther && (
-            <div className="fixed inset-0 -z-10">
-              <LiquidEther
-                colors={['#5227FF', '#FF9FFC', '#B19EEF']}
-                mouseForce={20}
-                cursorSize={100}
-                isViscous={false}
-                viscous={30}
-                iterationsViscous={32}
-                iterationsPoisson={32}
-                resolution={0.5}
-                isBounce={false}
-                autoDemo={true}
-                autoSpeed={0.5}
-                autoIntensity={2.2}
-                takeoverDuration={0.25}
-                autoResumeDelay={3000}
-                autoRampDuration={0.6}
-              />
-            </div>
-          )}
+      {/* Lazy loaded UI extras */}
+      <Suspense fallback={null}>
+        <CookieBar />
+        <NotificationBar />
+        <LiveChat />
+      </Suspense>
 
-          <div className="fixed inset-0 -z-20 bg-slate-950" />
-
-          <div className="container mx-auto px-8 relative z-10">
-            <Navbar />            
-            <Hero />
-            <Offer />
-            <Projects />
-            <Contact />
-            <Footer />
-          </div>
-
-          <CookieBar />
-          <NotificationBar />
-          <LiveChat />
-        </Suspense>
-      )}
     </div>
   );
 }

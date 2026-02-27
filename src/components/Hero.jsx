@@ -5,67 +5,59 @@ const Hero = () => {
   return (
     <motion.section
       id="hero"
-      className="w-full flex flex-col gap-6 lg:gap-10 justify-center items-center py-32 lg:py-32 px-4 text-center"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
+      className="relative w-full flex flex-col justify-center items-center py-40 lg:py-35 px-4 text-center overflow-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      role="banner"
     >
-      <motion.h1
-        className="text-3xl sm:text-4xl lg:text-6xl xl:text-6xl font-inter font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-500 max-w-5xl"
-        initial={{ opacity: 0, y: -20 }}
+      {/* Abstract Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/20 blur-[120px] rounded-full -z-10" />
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8 }}
+        className="inline-block px-4 py-1.5 mb-6 rounded-full border border-purple-500/30 bg-purple-500/10 text-[#9754DE] text-xs font-bold tracking-widest uppercase"
       >
-        Digital Solutions <span className="block sm:inline font-semibold text-xl sm:text-2xl lg:text-3xl text-[#9754DE] mt-2 sm:mt-0">+ Streaming Services</span>
-        <br />
-        by Cedars Tech
+        Based in Lebanon • Shipping Worldwide
+      </motion.div>
+
+      <motion.h1
+        className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white max-w-5xl leading-[1.1]"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.8 }}
+      >
+        We build <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-500">digital experiences</span> that scale.
       </motion.h1>
 
       <motion.p
-        className="text-gray-300 text-base sm:text-lg lg:text-xl mt-2 px-4 max-w-3xl"
+        className="text-gray-400 text-lg lg:text-xl mt-8 max-w-2xl leading-relaxed"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.35, duration: 0.8 }}
+        transition={{ delay: 0.5, duration: 0.8 }}
       >
-        Launch your business online in <span className="text-[#9754DE] font-semibold">7 days</span> – Trusted by local brands in Lebanon
-      </motion.p>
-
-      <motion.p
-        className="text-center text-base lg:text-lg text-gray-400 max-w-3xl mt-3 px-4"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
-      >
-        Cedars Tech is a Lebanon-based web development studio specializing in professional websites for coffee shops, restaurants, and local businesses in Beirut and across Lebanon.
+        From high-converting landing pages to custom streaming platforms. 
+        Get your business online in less than <span className="text-white font-semibold">7 days</span>.
       </motion.p>
 
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.6, duration: 0.8 }}
-        className="flex flex-col sm:flex-row gap-4 lg:gap-6 mt-6 w-full sm:w-auto justify-center px-4"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.7, duration: 0.8 }}
+        className="flex flex-col sm:flex-row gap-4 mt-12 w-full sm:w-auto"
       >
-        <motion.a
-          href="https://wa.me/96181090757"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full sm:w-auto flex justify-center items-center gap-2 bg-[#25D366] hover:bg-green-600 text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-950 focus:ring-green-500 shadow-lg hover:shadow-green-500/50"
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          aria-label="Contact us on WhatsApp"
-          data-testid="hero-whatsapp-cta-btn"
-        >
-          Contact Us on WhatsApp
-        </motion.a>
-
         <a
-          href="/demo/portfolio"
-          className="w-full sm:w-auto flex justify-center items-center gap-2 bg-[#9754DE] hover:bg-purple-500 text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-950 focus:ring-purple-500 shadow-lg hover:shadow-purple-500/50"
-          aria-label="View portfolio demo"
-          data-testid="hero-portfolio-btn"
+          href="https://wa.me/96181090757"
+          className="bg-white text-black font-bold px-10 py-4 rounded-full transition-all hover:bg-gray-200 hover:scale-105 active:scale-95"
         >
-          View Portfolio Demo
+          Start a Project
+        </a>
+        <a
+          href="#projects"
+          className="bg-transparent border border-white/20 text-white font-bold px-10 py-4 rounded-full transition-all hover:bg-white/5 hover:border-white/40"
+        >
+          View Work
         </a>
       </motion.div>
     </motion.section>

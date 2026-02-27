@@ -1,42 +1,54 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { FaTimes } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaTimes, FaArrowRight } from 'react-icons/fa';
 
 const NotificationBar = () => {
   const [show, setShow] = useState(true);
 
-  const handleClose = () => {
-    setShow(false);
-  };
+  // Optional: Auto-hide after 10 seconds to keep the UI clean
+  useEffect(() => {
+    const timer = setTimeout(() => setShow(false), 10000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <AnimatePresence>
       {show && (
-        <motion.div
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -100, opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="fixed top-0 left-0 w-full bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-500 text-white p-3 lg:p-4 flex justify-between items-center shadow-lg z-40"
-          role="banner"
-          aria-label="Notification banner"
-        >
-          <a 
-            href="https://cedarstech.info/streaming/prices" 
-            className="text-center lg:text-left text-sm lg:text-base font-medium hover:underline focus:outline-none focus:ring-2 focus:ring-white/50 rounded px-2 py-1"
-            data-testid="notification-link"
+        <div className="fixed top-24 left-0 w-full flex justify-center items-center z-[100] px-4 pointer-events-none">
+          <motion.div
+            initial={{ y: -20, opacity: 0, scale: 0.9 }}
+            animate={{ y: 0, opacity: 1, scale: 1 }}
+            exit={{ y: -20, opacity: 0, scale: 0.9 }}
+            className="pointer-events-auto flex items-center gap-4 bg-black/60 backdrop-blur-xl border border-white/10 p-1.5 pl-4 pr-2 rounded-full shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] max-w-fit"
+            role="status"
           >
-            🚀 New! Check out our latest services and offers now!
-          </a>
-          <button
-            onClick={handleClose}
-            className="text-white hover:text-gray-200 transition-colors duration-300 p-2 rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/50"
-            aria-label="Close notification"
-            data-testid="close-notification-btn"
-          >
-            <FaTimes size={18} />
-          </button>
-        </motion.div>
+            {/* Tag/Badge */}
+            <span className="hidden sm:inline-block bg-[#9754DE] text-white text-[10px] font-black uppercase tracking-tighter px-2.5 py-1 rounded-full">
+              New
+            </span>
+
+            {/* Content Link */}
+            <a 
+              href="https://cedarstech.info/streaming/prices" 
+              className="group flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-200 hover:text-white transition-colors"
+            >
+              <span>Explore our Streaming Services</span>
+              <FaArrowRight size={10} className="group-hover:translate-x-1 transition-transform text-[#9754DE]" />
+            </a>
+
+            {/* Divider */}
+            <div className="w-[1px] h-4 bg-white/10 mx-1" />
+
+            {/* Close Button */}
+            <button
+              onClick={() => setShow(false)}
+              className="p-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-full transition-all"
+              aria-label="Close notification"
+            >
+              <FaTimes size={14} />
+            </button>
+          </motion.div>
+        </div>
       )}
     </AnimatePresence>
   );
