@@ -17,107 +17,128 @@ const Navbar = () => {
 
   const links = ["Offer", "Projects", "Contact"];
 
+  // Prevent scrolling when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isOpen]);
+
   return (
-    <nav className="fixed top-0 left-0 w-full z-50">
+    <nav className="fixed top-0 left-0 w-full z-[100]">
       
+      {/* Smart Background Layer */}
       <div
         className={`absolute inset-0 transition-all duration-500 ${
-          scrolled
-            ? "bg-black/70 backdrop-blur-xl border-b border-white/10"
+          scrolled && !isOpen
+            ? "bg-black/60 backdrop-blur-xl border-b border-white/5"
             : "bg-transparent"
         }`}
       />
 
       <div className="relative max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-3 group">
-  
-  {/* Logo container */}
-    <div className="relative">
-      <div className="absolute inset-0 rounded-xl bg-[#9754DE]/20 blur-md opacity-0 group-hover:opacity-100 transition duration-500" />
+        {/* LOGO AREA */}
+        <a href="/" className="flex items-center gap-2 relative z-[110]">
+          <img
+            src={Logo}
+            alt="CedarsTech Logo"
+            className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+          />
+          <span className="text-lg font-black tracking-tighter text-white uppercase">
+            Cedars<span className="text-[#9754DE]">Tech</span>
+          </span>
+        </a>
 
-      <div className="relative w-20 h-20 sm:w-11 sm:h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
-        <img
-          src={Logo}
-          alt="CedarsTech Logo"
-          className="w-15 h-15 object-contain transition-transform duration-500 group-hover:scale-110"
-        />
-      </div>
-    </div>
-
-  <span className="text-lg sm:text-xl font-black tracking-tight text-white uppercase leading-none">
-    Cedars<span className="text-[#9754DE]">Tech</span>
-  </span>
-
-</a>
-
-        <div className="hidden lg:flex items-center gap-10">
+        {/* DESKTOP NAV */}
+        <div className="hidden lg:flex items-center gap-8">
           {links.map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="relative text-sm font-medium text-gray-400 hover:text-white transition"
+              className="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-colors"
             >
               {item}
-
-              <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-[#9754DE] transition-all group-hover:w-full" />
             </a>
           ))}
-
-          {/* CTA */}
           <a
             href="https://wa.me/96181090757"
-            className="ml-4 px-6 py-2.5 rounded-xl bg-[#9754DE] text-white text-xs font-semibold tracking-wide hover:opacity-90 transition"
+            className="px-5 py-2 rounded-full bg-white text-black text-[10px] font-black uppercase tracking-widest hover:bg-[#9754DE] hover:text-white transition-all"
           >
             Get Started
           </a>
         </div>
 
-        {/* MOBILE BUTTON */}
+        {/* MOBILE TOGGLE - Professional Minimalist Style */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden text-white relative z-50"
+          className="lg:hidden relative z-[110] p-2 text-white overflow-hidden"
         >
-          {isOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
+          <motion.div
+            animate={{ rotate: isOpen ? 180 : 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {isOpen ? <HiX size={28} /> : <HiMenuAlt3 size={28} />}
+          </motion.div>
         </button>
       </div>
 
+      {/* FULL SCREEN OVERLAY MENU */}
       <AnimatePresence>
         {isOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm"
-            />
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 w-full h-screen bg-black/95 backdrop-blur-2xl flex flex-col justify-center items-center lg:hidden"
+          >
+            {/* Background Accent Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#9754DE]/20 blur-[100px] rounded-full" />
 
-            <motion.div
-              initial={{ y: "-100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "-100%" }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="fixed top-0 left-0 w-full bg-black border-b border-white/10 p-8 flex flex-col gap-8"
-            >
-              {links.map((item) => (
-                <a
+            <div className="relative z-10 flex flex-col items-center gap-10">
+              {links.map((item, idx) => (
+                <motion.a
                   key={item}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: idx * 0.1 }}
                   href={`#${item.toLowerCase()}`}
                   onClick={() => setIsOpen(false)}
-                  className="text-2xl font-semibold text-white"
+                  className="text-5xl font-black text-white uppercase tracking-tighter hover:text-[#9754DE] transition-colors"
                 >
                   {item}
-                </a>
+                </motion.a>
               ))}
 
-              <a
-                href="https://wa.me/96181090757"
-                className="mt-4 w-full py-4 bg-[#9754DE] text-center rounded-xl font-semibold"
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+                className="mt-10"
               >
-                WhatsApp Us
-              </a>
+                <a
+                  href="https://wa.me/96181090757"
+                  className="px-10 py-4 rounded-full bg-[#9754DE] text-white font-black uppercase tracking-widest text-sm shadow-2xl shadow-purple-500/30"
+                >
+                  WhatsApp Now
+                </a>
+              </motion.div>
+            </div>
+
+            {/* Bottom Info for Mobile Menu */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className="absolute bottom-12 text-center"
+            >
+              <p className="text-gray-500 text-[10px] font-bold uppercase tracking-[0.3em]">
+                Beirut • Lebanon
+              </p>
             </motion.div>
-          </>
+          </motion.div>
         )}
       </AnimatePresence>
     </nav>

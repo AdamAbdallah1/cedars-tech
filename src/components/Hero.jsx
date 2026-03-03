@@ -10,8 +10,12 @@ const Hero = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      {/* Abstract Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/20 blur-[120px] rounded-full -z-10" />
+      {/* FIXED RESPONSIVE BACKGROUND GLOW */}
+      <div 
+        className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 
+                   w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] lg:w-[700px] lg:h-[700px] 
+                   bg-purple-600/20 blur-[80px] sm:blur-[120px] rounded-full -z-10 pointer-events-none" 
+      />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -49,13 +53,13 @@ const Hero = () => {
       >
         <a
           href="https://wa.me/96181090757"
-          className="bg-white text-black font-bold px-10 py-4 rounded-full transition-all hover:bg-gray-200 hover:scale-105 active:scale-95"
+          className="bg-white text-black font-bold px-10 py-4 rounded-full transition-all hover:bg-gray-200 hover:scale-105 active:scale-95 text-center"
         >
           Start a Project
         </a>
         <a
           href="#projects"
-          className="bg-transparent border border-white/20 text-white font-bold px-10 py-4 rounded-full transition-all hover:bg-white/5 hover:border-white/40"
+          className="bg-transparent border border-white/20 text-white font-bold px-10 py-4 rounded-full transition-all hover:bg-white/5 hover:border-white/40 text-center"
         >
           View Work
         </a>
