@@ -17,7 +17,6 @@ const Navbar = () => {
 
   const links = ["Offer", "Projects", "Contact"];
 
-  // Prevent scrolling when menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -29,7 +28,6 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-[100]">
       
-      {/* Smart Background Layer */}
       <div
         className={`absolute inset-0 transition-all duration-500 ${
           scrolled && !isOpen
@@ -38,8 +36,7 @@ const Navbar = () => {
         }`}
       />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* LOGO AREA */}
+      <div className="relative max-w-7xl mx-auto px-6 py-4 flex items-center justify-around">
         <a href="/" className="flex items-center gap-2 relative z-[110]">
           <img
             src={Logo}
@@ -51,7 +48,6 @@ const Navbar = () => {
           </span>
         </a>
 
-        {/* DESKTOP NAV */}
         <div className="hidden lg:flex items-center gap-8">
           {links.map((item) => (
             <a
@@ -70,7 +66,6 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* MOBILE TOGGLE - Professional Minimalist Style */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="lg:hidden relative z-[110] p-2 text-white overflow-hidden"
@@ -84,7 +79,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* FULL SCREEN OVERLAY MENU */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -94,7 +88,6 @@ const Navbar = () => {
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="fixed inset-0 w-full h-screen bg-black/95 backdrop-blur-2xl flex flex-col justify-center items-center lg:hidden"
           >
-            {/* Background Accent Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#9754DE]/20 blur-[100px] rounded-full" />
 
             <div className="relative z-10 flex flex-col items-center gap-10">
@@ -127,7 +120,6 @@ const Navbar = () => {
               </motion.div>
             </div>
 
-            {/* Bottom Info for Mobile Menu */}
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

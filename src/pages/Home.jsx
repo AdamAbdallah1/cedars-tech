@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import ProgressBar from "../components/ProgressBar";
 import Loader from "../components/Loader";
-import GlobalStars from "./GlobalStars"; // Import the global scene
+import GlobalStars from "./GlobalStars"; 
 
 const Offer = React.lazy(() => import("../components/Offer"));
 const Projects = React.lazy(() => import("../components/Projects"));
@@ -30,11 +30,9 @@ function Home() {
       {!loading && (
         <Suspense fallback={<Loader />}>
           
-          {/* THE ENGINE: Progress & Global Star Background */}
           <ProgressBar />
           <GlobalStars /> 
 
-          {/* BASE BACKGROUND COLOR */}
           <div className="fixed inset-0 -z-20 bg-slate-950" />
 
           <Navbar />

@@ -6,16 +6,13 @@ const Hero = () => {
   return (
     <motion.section
       id="hero"
-      // Added min-h-screen to ensure the 3D model has space to breathe
       className="relative w-full min-h-screen flex flex-col justify-center items-center py-20 px-4 text-center overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      {/* 3D Model sits at Z-0, behind the content (Z-10) */}
       <Scene3D />
 
-      {/* Content Area */}
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
 
         <motion.h1
