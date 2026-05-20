@@ -16,6 +16,14 @@
       "source": "/tools/(.*)",
       "destination": "https://cedarstech-tools.vercel.app/tools/$1"
     },
+    {
+      "source": "/demo/street-food",
+      "destination": "https://street-food-vert.vercel.app/demo/street-food"
+    },
+    {
+      "source": "/demo/street-food/(.*)",
+      "destination": "https://street-food-vert.vercel.app/demo/street-food/$1"
+    },
 
     {
       "source": "/demo/portfolio",
