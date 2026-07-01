@@ -39,12 +39,7 @@ const Footer = () => {
         </div>
 
         {/* Quick Links */}
-        <nav className="flex flex-wrap justify-center gap-4 lg:gap-6 text-gray-400" aria-label="Footer navigation">
-          <a href="#hero" className="hover:text-[#9754DE] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#9754DE]/50 rounded px-2 py-1">Home</a>
-          <a href="#offer" className="hover:text-[#9754DE] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#9754DE]/50 rounded px-2 py-1">Services</a>
-          <a href="#projects" className="hover:text-[#9754DE] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#9754DE]/50 rounded px-2 py-1">Projects</a>
-          <a href="#contact" className="hover:text-[#9754DE] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#9754DE]/50 rounded px-2 py-1">Contact</a>
-        </nav>
+        <p>Digital systems for Lebanese businesses</p>
 
         {/* Divider */}
         <div className="w-full max-w-md h-px bg-white/10 my-2" />
