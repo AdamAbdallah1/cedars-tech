@@ -1,54 +1,71 @@
 import React from 'react';
-import { motion } from 'motion/react';
-import { FaInstagram, FaWhatsapp, FaFacebook, FaTiktok } from "react-icons/fa";
+
+const siteLinks = [
+  { name: 'Work', href: '#work' },
+  { name: 'Services', href: '#solutions' },
+  { name: 'Pricing', href: '#pricing' },
+  { name: 'FAQ', href: '#faq' },
+];
+
+const contactLinks = [
+  { name: 'WhatsApp', href: 'https://wa.me/96181090757', external: true },
+  { name: 'Instagram', href: 'https://instagram.com/cedars.tech', external: true },
+  { name: 'Email', href: 'mailto:adamabdallah.dev@gmail.com', external: false },
+];
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  
-  const socialLinks = [
-    { name: 'Instagram', icon: FaInstagram, href: 'https://www.instagram.com/cedars.tech/', color: 'hover:text-pink-400' },
-    { name: 'WhatsApp', icon: FaWhatsapp, href: 'https://wa.me/96181090757', color: 'hover:text-green-400' },
-    { name: 'Facebook', icon: FaFacebook, href: '#', color: 'hover:text-blue-400' },
-    { name: 'TikTok', icon: FaTiktok, href: '#', color: 'hover:text-purple-400' },
-  ];
-
   return (
-    <footer className="text-white text-center py-12 lg:py-16 px-4" role="contentinfo">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="flex flex-col items-center gap-6"
-      >
-        {/* Social Links */}
-        <div className="flex gap-6 text-3xl" aria-label="Social media links">
-          {socialLinks.map((social, index) => (
-            <a
-              key={index}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`transition-all duration-300 ${social.color} p-2 rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand/50`}
-              aria-label={social.name}
-              data-testid={`footer-${social.name.toLowerCase()}-link`}
-            >
-              <social.icon />
-            </a>
-          ))}
+    <footer className="border-t border-white/10 px-6 py-12" role="contentinfo">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+
+        {/* Left: wordmark + tagline */}
+        <div>
+          <p className="text-white font-black tracking-tight text-lg">
+            CEDARS<span className="text-brand"> TECH</span>
+          </p>
+          <p className="mt-3 text-gray-500 text-sm">
+            Websites that mean business.
+          </p>
         </div>
 
-        {/* Quick Links */}
-        <p>Digital systems for Lebanese businesses</p>
+        {/* Right: links */}
+        <div className="grid grid-cols-2 gap-10">
+          <nav aria-label="Footer">
+            <p className="text-[10px] uppercase tracking-[0.35em] text-gray-600 font-bold mb-4">Pages</p>
+            <ul className="space-y-2.5">
+              {siteLinks.map((l) => (
+                <li key={l.name}>
+                  <a href={l.href} className="text-sm text-gray-400 hover:text-white transition">
+                    {l.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        {/* Divider */}
-        <div className="w-full max-w-md h-px bg-white/10 my-2" />
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.35em] text-gray-600 font-bold mb-4">Contact</p>
+            <ul className="space-y-2.5">
+              {contactLinks.map((l) => (
+                <li key={l.name}>
+                  <a
+                    href={l.href}
+                    {...(l.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    className="text-sm text-gray-400 hover:text-white transition"
+                  >
+                    {l.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
-        {/* Copyright */}
-        <p className="text-gray-400 text-sm lg:text-base">
-          © {currentYear} Cedars Tech. All rights reserved.
-        </p>
-      </motion.div>
+      </div>
+
+      <div className="max-w-6xl mx-auto mt-10">
+        <p className="text-[11px] text-gray-600">© 2026 Cedars Tech</p>
+      </div>
     </footer>
   );
 };

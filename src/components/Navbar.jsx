@@ -1,126 +1,93 @@
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { HiMenuAlt3, HiX } from "react-icons/hi";
-import Logo from "../assets/logo-white.png";
+
+const links = [
+  { name: "Work", href: "#work" },
+  { name: "Services", href: "#solutions" },
+  { name: "Pricing", href: "#pricing" },
+  { name: "FAQ", href: "#faq" },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
- const links = [
-  { name: "Solutions", href: "#solutions" },
-  { name: "Work", href: "#work" },
-  { name: "Pricing", href: "#pricing" },
-  { name: "Contact", href: "#contact" }
-];
 
   useEffect(() => {
     if (isOpen) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "unset";
+    else document.body.style.overflow = "";
+    return () => { document.body.style.overflow = ""; };
   }, [isOpen]);
 
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === "Escape") setIsOpen(false); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 w-full z-[100]">
+    <header className="fixed top-0 left-0 w-full z-[100] bg-black/80 backdrop-blur-md border-b border-white/10">
+      <nav className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16" aria-label="Main navigation">
 
-      {/* Background */}
-      <div
-        className={`absolute inset-0 transition-all duration-500 ${
-          scrolled || isOpen
-            ? "bg-black/70 backdrop-blur-xl border-b border-white/5"
-            : "bg-transparent"
-        }`}
-      />
-
-      <div className="relative max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-
-        {/* Logo */}
-        <a href="/" className="flex items-center gap-3 z-[110]">
-          <img
-            src={Logo}
-            alt="CedarsTech"
-            className="w-10 h-10 object-contain"
-          />
-
-          <span className="text-white font-black tracking-tight text-lg">
-            Cedars<span className="text-brand">Tech</span>
-          </span>
+        {/* Wordmark */}
+        <a href="#hero" className="text-white font-black tracking-tight text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 rounded">
+          CEDARS<span className="text-brand"> TECH</span>
         </a>
 
         {/* Desktop links */}
-        <div className="hidden lg:flex items-center gap-10">
-
+        <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-sm uppercase tracking-widest text-gray-400 hover:text-white transition"
+              className="text-[13px] font-bold uppercase tracking-widest text-gray-400 hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 rounded"
             >
               {link.name}
             </a>
           ))}
-
           <a
-            href="https://wa.me/96181090757"
-            className="btn-nav"
+            href="#contact"
+            className="px-6 py-2 rounded-full bg-brand text-white font-bold text-[13px] hover:bg-purple-600 transition"
           >
-            Free Audit
+            Get in touch
           </a>
-
         </div>
 
-        {/* Mobile button */}
+        {/* Mobile menu button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden z-[110] text-white"
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          className="md:hidden text-white text-sm font-black uppercase tracking-widest focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 rounded"
         >
-          {isOpen ? <HiX size={28} /> : <HiMenuAlt3 size={28} />}
+          {isOpen ? "Close" : "Menu"}
         </button>
-      </div>
+      </nav>
 
       {/* Mobile menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center gap-10"
-          >
-
-            {links.map((link, i) => (
-              <motion.a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                className="text-4xl font-black text-white uppercase tracking-tight hover:text-brand"
-              >
-                {link.name}
-              </motion.a>
-            ))}
-
+      {isOpen && (
+        <div
+          id="mobile-menu"
+          className="md:hidden border-t border-white/10 bg-black px-6 py-8 flex flex-col gap-6"
+        >
+          {links.map((link) => (
             <a
-              href="https://wa.me/96181090757"
-              className="mt-10 btn-menu-accent"
+              key={link.name}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className="text-2xl font-black text-white tracking-tight hover:text-brand transition"
             >
-              Free Audit
+              {link.name}
             </a>
-
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-    </nav>
+          ))}
+          <a
+            href="#contact"
+            onClick={() => setIsOpen(false)}
+            className="btn-accent mt-4 text-center"
+          >
+            Get in touch
+          </a>
+        </div>
+      )}
+    </header>
   );
 };
 
