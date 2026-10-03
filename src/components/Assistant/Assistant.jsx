@@ -57,7 +57,7 @@ const Assistant = () => {
         aria-label={open ? "Close assistant" : "Open assistant"}
         className="fixed bottom-5 right-5 z-[120] px-5 py-3 rounded-full bg-brand text-white text-xs font-black uppercase tracking-widest shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/60"
       >
-        {open ? "Close" : "Ask us"}
+        {open ? "x" : "Ask us"}
       </button>
 
       {open && (
