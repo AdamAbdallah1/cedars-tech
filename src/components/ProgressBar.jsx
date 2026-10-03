@@ -26,7 +26,7 @@ const ProgressBar = () => {
       aria-label="Page scroll progress"
     >
       <motion.div
-        className="h-1 bg-gradient-to-r from-[#9754DE] via-[#FF9FFC] to-[#B19EEF] origin-left shadow-lg shadow-purple-500/50"
+        className="h-1 bg-gradient-to-r from-brand via-brand-pink to-brand-lilac origin-left shadow-lg shadow-purple-500/50"
         initial={{ scaleX: 0 }}
         animate={{ scaleX: scroll / 100 }}
         transition={{ type: 'spring', stiffness: 100, damping: 20 }}

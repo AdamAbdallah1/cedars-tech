@@ -50,7 +50,7 @@ const Navbar = () => {
           />
 
           <span className="text-white font-black tracking-tight text-lg">
-            Cedars<span className="text-[#9754DE]">Tech</span>
+            Cedars<span className="text-brand">Tech</span>
           </span>
         </a>
 
@@ -69,19 +69,7 @@ const Navbar = () => {
 
           <a
             href="https://wa.me/96181090757"
-            className="
-              px-6 py-2
-              rounded-full
-              bg-white
-              text-black
-              font-bold
-              text-xs
-              uppercase
-              tracking-widest
-              hover:bg-[#9754DE]
-              hover:text-white
-              transition
-            "
+            className="btn-nav"
           >
             Free Audit
           </a>
@@ -115,7 +103,7 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="text-4xl font-black text-white uppercase tracking-tight hover:text-[#9754DE]"
+                className="text-4xl font-black text-white uppercase tracking-tight hover:text-brand"
               >
                 {link.name}
               </motion.a>
@@ -123,7 +111,7 @@ const Navbar = () => {
 
             <a
               href="https://wa.me/96181090757"
-              className="mt-10 px-10 py-4 bg-[#9754DE] text-white font-black uppercase tracking-widest rounded-full"
+              className="mt-10 btn-menu-accent"
             >
               Free Audit
             </a>

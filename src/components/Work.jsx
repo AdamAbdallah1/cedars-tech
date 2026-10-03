@@ -1,178 +1,134 @@
-  import React from "react";
-  import { motion } from "framer-motion";
-  import {
-    FaUtensils,
-    FaCut,
-    FaPlane,
-    FaTooth,
-    FaCoffee,
-    FaUserTie,
-    FaTruckMoving,
-    FaCalendarAlt
-  } from "react-icons/fa";
+import React from "react";
+import { motion } from "framer-motion";
 
-  const Work = () => {
-    const items = [
-      {
-        title: "Restaurant Demo",
-        desc: "High-conversion restaurant landing page with menu + WhatsApp ordering flow.",
-        tag: "Food Industry",
-        icon: <FaUtensils />,
-        link: "/demo/restaurant"
-      },
-      {
-        title: "Barber Booking Demo",
-        desc: "Appointment-based booking landing page for service businesses.",
-        tag: "Service Business",
-        icon: <FaCut />,
-        link: "/demo/barber"
-      },
-      {
-        title: "Coffee Shop Demo",
-        desc: "Simple ordering-focused café landing page optimized for mobile conversion.",
-        tag: "Retail System",
-        icon: <FaCoffee />,
-        link: "/demo/coffee-shop"
-      },
-      {
-        title: "Dental Clinic Demo",
-        desc: "Clinic landing page with appointment structure and trust-focused design.",
-        tag: "Healthcare System",
-        icon: <FaTooth />,
-        link: "/demo/dental-clinic"
-      },
-      {
-        title: "Event Planning Demo",
-        desc: "Landing page for booking events, inquiries, and service requests.",
-        tag: "Booking System",
-        icon: <FaCalendarAlt />,
-        link: "/demo/event-plan"
-      },
-      {
-        title: "Portfolio Demo",
-        desc: "Personal branding landing page designed to convert clients & recruiters.",
-        tag: "Personal Brand",
-        icon: <FaUserTie />,
-        link: "/demo/portfolio"
-      },
-      {
-        title: "Logistics Demo",
-        desc: "Operational landing page for transport and logistics businesses.",
-        tag: "Operations System",
-        icon: <FaTruckMoving />,
-        link: "/demo/logistics"
-      },
-      {
-        title: "Travel Agency Demo",
-        desc: "Tourism landing page optimized for booking inquiries.",
-        tag: "Booking System",
-        icon: <FaPlane />,
-        link: "/demo/travel-tourism"
-      }
-    ];
+const concepts = [
+  { title: "Restaurant", link: "/demo/restaurant" },
+  { title: "Coffee Shop", link: "/demo/coffee-shop" },
+  { title: "Barber", link: "/demo/barber" },
+  { title: "Event Plan", link: "/demo/event-plan" },
+  { title: "Travel & Tourism", link: "/demo/travel-tourism" },
+  { title: "Portfolio", link: "/demo/portfolio" },
+  { title: "Dental Clinic", link: "/demo/dental-clinic" },
+];
 
-    return (
-      <section id="work" className="relative py-24 overflow-hidden">
+const Work = () => {
+  return (
+    <section id="work" className="relative py-24 px-6">
+      <div className="max-w-6xl mx-auto">
 
-        {/* background consistency */}
-        <div className="absolute inset-0 " />
+        {/* HEADER */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
+        >
+          <p className="eyebrow mb-5">Selected Work</p>
+          <h3 className="text-3xl lg:text-5xl font-black text-white leading-[1.08] tracking-tight">
+            A few things we’ve built.
+          </h3>
+          <p className="text-gray-400 mt-5 max-w-2xl mx-auto leading-relaxed">
+            A mix of products, client work, and concepts built by Cedars Tech.
+          </p>
+        </motion.div>
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6">
+        {/* FEATURED PROJECTS */}
+        <div className="border-t border-white/10">
 
-          {/* HEADER */}
-          <div className="mb-14">
+          {/* FORSA */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="py-8 border-b border-white/10"
+          >
+            <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-12">
+              <span className="text-brand font-black text-lg md:w-10 shrink-0 pt-0.5">01</span>
 
-            <h2 className="text-[11px] uppercase tracking-[0.35em] text-[#9754DE] font-bold mb-4">
-              Demo Library
-            </h2>
-
-            <h3 className="text-3xl lg:text-5xl font-black text-white leading-[1.1] max-w-3xl">
-              Real landing pages built for real businesses
-              <span className="text-gray-500"> — click to explore.</span>
-            </h3>
-
-            <p className="text-gray-400 mt-6 max-w-2xl leading-relaxed">
-              These are live demos of Cedars Tech landing page systems.
-              Each one is optimized for conversions, WhatsApp leads, and local business growth.
-            </p>
-
-          </div>
-
-
-          {/* GRID */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-            {items.map((item, idx) => (
-              <motion.a
-                key={idx}
-                href={item.link}
-                whileHover={{ y: -6 }}
-                transition={{ type: "spring", stiffness: 200 }}
-                className="
-                  group
-                  relative
-                  p-6
-                  rounded-2xl
-                  border border-white/10
-                  bg-white/[0.02]
-                  backdrop-blur-xl
-                  overflow-hidden
-                  block
-                "
-              >
-
-                {/* glow */}
-                <div className="
-                  absolute inset-0
-                  opacity-0 group-hover:opacity-100
-                  transition duration-500
-                  bg-[radial-gradient(circle_at_30%_20%,rgba(151,84,222,0.18),transparent_60%)]
-                " />
-
-                {/* top row */}
-                <div className="relative flex items-center justify-between mb-4">
-
-                  <span className="
-                    text-[10px]
-                    uppercase
-                    tracking-[0.35em]
-                    text-gray-500
-                  ">
-                    {item.tag}
+              <div className="flex-1">
+                <div className="flex items-baseline gap-4 flex-wrap">
+                  <h4 className="text-2xl font-black text-white tracking-tight">FORSA</h4>
+                  <span className="text-[10px] uppercase tracking-[0.35em] text-gray-500">
+                    Opportunity Platform
                   </span>
-
-                  <div className="text-[#9754DE] text-lg">
-                    {item.icon}
-                  </div>
-
                 </div>
-
-                {/* title */}
-                <h4 className="relative text-lg font-black text-white">
-                  {item.title}
-                </h4>
-
-                {/* divider */}
-                <div className="relative w-full h-px bg-white/5 mt-3 mb-3" />
-
-                {/* desc */}
-                <p className="relative text-gray-400 text-sm leading-relaxed">
-                  {item.desc}
+                <p className="mt-3 text-gray-400 text-sm leading-relaxed max-w-xl">
+                  A platform connecting students, early-career talent and companies across Lebanon.
                 </p>
+                <p className="mt-3 text-[11px] uppercase tracking-widest text-gray-500">
+                  React · Firebase · Firestore · Tailwind
+                </p>
+              </div>
 
-                {/* bottom hint */}
-                <div className="relative mt-5 text-xs text-gray-600 group-hover:text-gray-400 transition">
-                  Click to view live demo →
+              <p className="text-sm font-bold text-brand md:pt-1">View Forsa →</p>
+            </div>
+          </motion.div>
+
+          {/* ABC QATAR */}
+          <motion.a
+            href="https://www.abcqatar.co/"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.08 }}
+            className="block py-8 border-b border-white/10 group"
+          >
+            <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-12">
+              <span className="text-brand font-black text-lg md:w-10 shrink-0 pt-0.5">02</span>
+
+              <div className="flex-1">
+                <div className="flex items-baseline gap-4 flex-wrap">
+                  <h4 className="text-2xl font-black text-white tracking-tight">ABC QATAR</h4>
+                  <span className="text-[10px] uppercase tracking-[0.35em] text-gray-500">
+                    Client Website
+                  </span>
                 </div>
+                <p className="mt-3 text-gray-400 text-sm leading-relaxed max-w-xl">
+                  A professional business website built for ABC Qatar.
+                </p>
+                <p className="mt-3 text-[11px] uppercase tracking-widest text-gray-500">
+                  Client project · Business website
+                </p>
+              </div>
 
-              </motion.a>
-            ))}
-
-          </div>
+              <p className="text-sm font-bold text-gray-600 group-hover:text-brand transition duration-300 md:pt-1">
+                Visit website →
+              </p>
+            </div>
+          </motion.a>
 
         </div>
-      </section>
-    );
-  };
 
-  export default Work;
+        {/* CONCEPTS */}
+        <div className="mt-14">
+          <p className="text-[10px] uppercase tracking-[0.35em] text-gray-500 font-bold mb-5">
+            Concepts
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 border-t border-white/10">
+            {concepts.map((concept, idx) => (
+              <a
+                key={idx}
+                href={concept.link}
+                className="flex items-center justify-between py-3.5 border-b border-white/10 group"
+              >
+                <span className="text-sm text-gray-300 group-hover:text-white transition duration-300">
+                  {concept.title}
+                </span>
+                <span className="text-gray-700 group-hover:text-brand transition duration-300" aria-hidden="true">
+                  →
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+export default Work;

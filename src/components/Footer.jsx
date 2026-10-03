@@ -29,7 +29,7 @@ const Footer = () => {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`transition-all duration-300 ${social.color} p-2 rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#9754DE]/50`}
+              className={`transition-all duration-300 ${social.color} p-2 rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand/50`}
               aria-label={social.name}
               data-testid={`footer-${social.name.toLowerCase()}-link`}
             >

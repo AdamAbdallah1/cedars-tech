@@ -1,164 +1,108 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const Solutions = () => {
-  const solutions = [
+const services = [
   {
-    title: "Landing Pages That Get Clients",
-    desc: "High-conversion pages designed to turn visitors into WhatsApp messages or calls.",
-    tag: "Core Service"
+    number: "01",
+    title: "Business Websites",
+    desc: "A professional website that clearly explains what the business offers, builds trust, and gives customers an easy way to contact them.",
   },
   {
-    title: "Industry-Based Demos",
-    desc: "Pre-built websites for restaurants, barbers, cafés, clinics, events, and more.",
-    tag: "Product System"
+    number: "02",
+    title: "Local Business Websites",
+    desc: "Mobile-first websites for restaurants, cafés, barbers, clinics and other local businesses, built around menus, services, locations, bookings and WhatsApp.",
   },
   {
-    title: "Fast Website Delivery",
-    desc: "Your business goes live in 2–3 days with a fully responsive modern design.",
-    tag: "Delivery"
+    number: "03",
+    title: "Landing Pages",
+    desc: "Focused pages for a product, service, campaign or new business, designed around one clear goal and a strong call to action.",
   },
   {
-    title: "Simple Customization",
-    desc: "We adapt branding, content, and contact flows — no technical complexity needed.",
-    tag: "Service"
-  }
+    number: "04",
+    title: "Website Care",
+    desc: "Ongoing updates, content changes, fixes and support after launch.",
+  },
 ];
 
+const Solutions = () => {
   return (
-    <section id="solutions" className="relative py-24 overflow-hidden">
+    <section id="solutions" className="relative py-24 px-6">
+      <div className="max-w-6xl mx-auto">
 
-      {/* background consistency with hero */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(151,84,222,0.12),transparent_55%)]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-black" />
-
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
-
-        {/* HEADER */}
-        <div className="mb-14">
-
-          <h2 className="text-[10px] uppercase tracking-[0.35em] text-[#9754DE] font-bold mb-4">
-            What We Fix
-          </h2>
-
-          <h3 className="text-3xl lg:text-5xl font-black text-white leading-[1.05] max-w-3xl">
-            Most businesses in Lebanon are leaking revenue online
-            <span className="text-gray-500"> — we fix that.</span>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <p className="eyebrow mb-5">What We Do</p>
+          <h3 className="text-3xl lg:text-5xl font-black text-white leading-[1.08] tracking-tight">
+            A better website for every stage of your business
           </h3>
-
-          <p className="text-gray-400 mt-6 max-w-2xl leading-relaxed text-base">
-            Cedars Tech builds structured digital systems that turn attention into customers,
-            and customers into predictable revenue.
+          <p className="text-gray-400 mt-6 max-w-2xl mx-auto leading-relaxed">
+            Cedars Tech designs and builds professional websites around how a real business needs to attract, inform and convert customers.
           </p>
+        </motion.div>
 
-        </div>
-
-
-        {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-          {solutions.map((item, idx) => (
+        <div className="border-t border-white/10">
+          {services.map((service, idx) => (
             <motion.div
               key={idx}
-              whileHover={{ y: -6 }}
-              transition={{ type: "spring", stiffness: 220, damping: 18 }}
-              className="
-                group
-                relative
-                p-7
-                rounded-2xl
-                border border-white/10
-                bg-white/[0.02]
-                backdrop-blur-xl
-                overflow-hidden
-                min-h-[180px]
-              "
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
+              className="py-8 sm:py-10 border-b border-white/10"
             >
-
-              {/* hover glow layer */}
-              <div className="
-                absolute inset-0
-                opacity-0 group-hover:opacity-100
-                transition duration-500
-                bg-[radial-gradient(circle_at_30%_20%,rgba(151,84,222,0.18),transparent_60%)]
-              " />
-
-              {/* top meta row */}
-              <div className="relative flex items-center justify-between mb-5">
-
-                <span className="
-                  text-[10px]
-                  uppercase
-                  tracking-[0.35em]
-                  text-gray-500
-                ">
-                  {item.tag}
-                </span>
-
-                <span className="w-2 h-2 rounded-full bg-[#9754DE] shadow-[0_0_14px_#9754DE]" />
-
+              {/* top row: number (+ arrow on mobile) */}
+              <div className="flex items-center justify-between md:hidden mb-5">
+                <span className="text-brand font-black text-lg">{service.number}</span>
+                <span className="text-gray-700 text-xl" aria-hidden="true">→</span>
               </div>
 
-              {/* title */}
-              <h4 className="
-                relative
-                text-lg
-                lg:text-xl
-                font-black
-                text-white
-                leading-snug
-              ">
-                {item.title}
-              </h4>
+              {/* desktop/tablet: 3-column editorial row */}
+              <div className="hidden md:flex md:items-start gap-10 lg:gap-16">
+                <span className="text-brand font-black text-xl w-12 shrink-0">
+                  {service.number}
+                </span>
 
-              {/* divider */}
-              <div className="relative mt-4 mb-4 w-full h-px bg-white/5" />
+                <div className="flex-1 max-w-3xl">
+                  <h4 className="text-xl lg:text-2xl font-black text-white tracking-tight uppercase">
+                    {service.title}
+                  </h4>
+                  <p className="mt-3 text-gray-400 text-sm lg:text-base leading-relaxed max-w-2xl">
+                    {service.desc}
+                  </p>
+                </div>
 
-              {/* description */}
-              <p className="
-                relative
-                text-gray-400
-                text-sm
-                leading-relaxed
-              ">
-                {item.desc}
-              </p>
+                <span className="text-gray-700 text-xl pt-1 shrink-0 w-6 text-right" aria-hidden="true">
+                  →
+                </span>
+              </div>
 
+              {/* mobile: vertical editorial block */}
+              <div className="md:hidden">
+                <h4 className="text-lg font-black text-white tracking-tight uppercase">
+                  {service.title}
+                </h4>
+                <p className="mt-3 text-gray-400 text-sm leading-relaxed max-w-xl">
+                  {service.desc}
+                </p>
+              </div>
             </motion.div>
           ))}
-
         </div>
 
-
-        {/* CTA */}
-        <div className="mt-16 text-center">
-
-          <p className="text-gray-500 text-sm mb-5">
-            Want this mapped to your business?
-          </p>
-
-          <a
-            href="https://wa.me/96181090757"
-            className="
-              inline-flex
-              items-center
-              justify-center
-              px-9
-              py-3.5
-              rounded-full
-              bg-white
-              text-black
-              font-bold
-              text-sm
-              hover:bg-[#9754DE]
-              hover:text-white
-              transition
-            "
-          >
-            Get Free Business Audit
-          </a>
-
-        </div>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-12 text-center text-[11px] uppercase tracking-widest text-gray-500"
+        >
+          Mobile-first · Fast loading · WhatsApp integration · SEO basics · Custom design
+        </motion.p>
 
       </div>
     </section>
