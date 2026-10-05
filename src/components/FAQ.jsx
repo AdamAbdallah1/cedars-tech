@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 
 const faqs = [
   {
@@ -33,11 +32,7 @@ const FAQ = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-start">
 
           {/* Left: heading */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div data-reveal
           >
             <p className="eyebrow mb-5">Frequently Asked Questions</p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-[1.08] tracking-tight">
@@ -46,7 +41,7 @@ const FAQ = () => {
             <p className="mt-6 text-gray-400 text-base sm:text-lg leading-relaxed max-w-md">
               A few things businesses usually want to know before starting.
             </p>
-          </motion.div>
+          </div>
 
           {/* Right: accordion */}
           <div className="border-t border-white/10">

@@ -3,7 +3,7 @@ import { getAssistantResponse } from "./assistantEngine";
 import { QUICK_ACTIONS, BUSINESS } from "./assistantKnowledge";
 
 const OPENING =
-  "Hi — I can help you with our services, pricing, websites, projects, or getting in touch.";
+  "Hi — what would you like to know? You can ask about our services, pricing, our work, or how to start a project.";
 
 const Assistant = () => {
   const [open, setOpen] = useState(false);

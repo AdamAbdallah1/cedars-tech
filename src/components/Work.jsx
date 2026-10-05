@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 
 const concepts = [
   { title: "Restaurant", link: "/demo/restaurant/" },
@@ -17,31 +16,27 @@ const Work = () => {
       <div className="max-w-6xl mx-auto">
 
         {/* HEADER */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+        <div data-reveal
+          className="mb-14"
         >
-          <p className="eyebrow mb-5">Selected Work</p>
-          <h3 className="text-3xl lg:text-5xl font-black text-white leading-[1.08] tracking-tight">
-            A few things we’ve built.
-          </h3>
-          <p className="text-gray-400 mt-5 max-w-2xl mx-auto leading-relaxed">
-            A mix of products, client work, and concepts built by Cedars Tech.
-          </p>
-        </motion.div>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div>
+              <p className="eyebrow mb-5">Selected Work</p>
+              <h3 className="text-3xl lg:text-5xl font-black text-white leading-[1.08] tracking-tight max-w-2xl">
+                A few things we’ve built.
+              </h3>
+            </div>
+            <p className="text-gray-400 md:max-w-sm leading-relaxed text-sm lg:text-base">
+              A mix of products, client work, and concepts built by Cedars Tech.
+            </p>
+          </div>
+        </div>
 
         {/* FEATURED PROJECTS */}
         <div className="border-t border-white/10">
 
           {/* FORSA */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+          <div data-reveal
             className="py-8 border-b border-white/10"
           >
             <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-12">
@@ -49,7 +44,7 @@ const Work = () => {
 
               <div className="flex-1">
                 <div className="flex items-baseline gap-4 flex-wrap">
-                  <h4 className="text-2xl font-black text-white tracking-tight">FORSA</h4>
+                  <h4 className="text-2xl font-black text-white tracking-tight transition duration-300 group-hover:text-brand">FORSA</h4>
                   <span className="text-[10px] uppercase tracking-[0.35em] text-gray-500">
                     Opportunity Platform
                   </span>
@@ -64,17 +59,13 @@ const Work = () => {
 
               <p className="text-sm font-bold text-brand md:pt-1">View Forsa →</p>
             </div>
-          </motion.div>
+          </div>
 
           {/* ABC QATAR */}
-          <motion.a
+          <a data-reveal
             href="https://www.abcqatar.co/"
             target="_blank"
             rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.08 }}
             className="block py-8 border-b border-white/10 group"
           >
             <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-12">
@@ -82,7 +73,7 @@ const Work = () => {
 
               <div className="flex-1">
                 <div className="flex items-baseline gap-4 flex-wrap">
-                  <h4 className="text-2xl font-black text-white tracking-tight">ABC QATAR</h4>
+                  <h4 className="text-2xl font-black text-white tracking-tight transition duration-300 group-hover:text-brand">ABC QATAR</h4>
                   <span className="text-[10px] uppercase tracking-[0.35em] text-gray-500">
                     Client Website
                   </span>
@@ -99,7 +90,7 @@ const Work = () => {
                 Visit website →
               </p>
             </div>
-          </motion.a>
+          </a>
 
         </div>
 

@@ -281,7 +281,7 @@ export function getAssistantResponse(message, context) {
   // quick actions pills
   for (const qa of QUICK_ACTIONS) {
     if (normalize(qa.query) === normalized) {
-      const map = { services: "services", pricing: "pricing", "our work": "portfolio", whatsapp: "whatsapp" };
+      const map = { services: "services", pricing: "pricing", "our work": "portfolio", whatsapp: "whatsapp", "start a project": "start_project" };
       return done(INTENTS.find((i) => i.id === map[qa.query]), entities, message, context);
     }
   }
@@ -306,6 +306,25 @@ export function getAssistantResponse(message, context) {
       const intent = intentId ? INTENTS.find((i) => i.id === intentId) : null;
       return done(intent, entities, message, context);
     }
+  }
+
+  // package follow-up: user replies with a package name after pricing
+  if (context && /pricing|starter_plan|business_plan|custom_plan|compare_plans/.test(context.lastIntent || "")) {
+    if (/starter|basic|one[- ]?page/.test(normalized)) return done(INTENTS.find((i) => i.id === "starter_plan"), entities, message, context);
+    if (/business|growth|up to 5/.test(normalized)) return done(INTENTS.find((i) => i.id === "business_plan"), entities, message, context);
+    if (/custom|advanced|platform|booking|ecommerce/.test(normalized)) return done(INTENTS.find((i) => i.id === "custom_plan"), entities, message, context);
+  }
+
+  // "what does it include?" — resolve against the last business/topic
+  if (/include|features|come with/.test(normalized) && context?.lastTopic) {
+    return {
+      text: "It includes a custom design for that business, mobile-first layout, WhatsApp + contact setup, and launch support. Business and Custom add forms, analytics, SEO and more.",
+      cta: { label: "WhatsApp", url: "https://wa.me/96181090757" },
+      intentId: "what_is_included",
+      confidence: 0.9,
+      suggestions: [],
+      context: nextCtx(context, message, "what_is_included", context.lastTopic),
+    };
   }
 
   // "I need a website" with no business yet → ask which business, set context

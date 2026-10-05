@@ -1,36 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const ProgressBar = () => {
   const [scroll, setScroll] = useState(0);
-
-  const handleScroll = () => {
-    const scrollTop = window.scrollY;
-    const docHeight = document.body.scrollHeight - window.innerHeight;
-    const scrollPercent = (scrollTop / docHeight) * 100;
-    setScroll(scrollPercent);
-  };
+  const raf = useRef(null);
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const update = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setScroll(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
+    };
+    const onScroll = () => {
+      cancelAnimationFrame(raf.current);
+      raf.current = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      cancelAnimationFrame(raf.current);
+    };
   }, []);
 
   return (
-    <div 
-      className="fixed top-0 left-0 w-full h-1 z-50 bg-gray-900/50"
+    <div
+      className="fixed top-0 left-0 w-full h-[2px] z-[130] bg-white/5"
       role="progressbar"
       aria-valuenow={Math.round(scroll)}
       aria-valuemin="0"
       aria-valuemax="100"
       aria-label="Page scroll progress"
     >
-      <motion.div
-        className="h-1 bg-gradient-to-r from-brand via-brand-pink to-brand-lilac origin-left shadow-lg shadow-purple-500/50"
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: scroll / 100 }}
-        transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-        style={{ transformOrigin: '0% 50%' }}
+      <div
+        className="h-full bg-brand origin-left transition-transform duration-150 ease-out"
+        style={{ transform: `scaleX(${scroll / 100})` }}
       />
     </div>
   );

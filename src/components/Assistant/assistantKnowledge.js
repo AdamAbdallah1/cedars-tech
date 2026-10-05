@@ -5,7 +5,7 @@ export const BUSINESS = {
   instagramUrl: "https://instagram.com/cedars.tech",
   whatsappDisplay: "+961 81 090 757",
   whatsappUrl: "https://wa.me/96181090757",
-  email: "adamabdallah.dev@gmail.com",
+  email: "contact.cedarstech@proton.me",
 };
 
 const wa = { label: "WhatsApp", url: BUSINESS.whatsappUrl };
@@ -261,8 +261,8 @@ export const FALLBACK = {
 export const QUICK_ACTIONS = [
   { label: "Services", query: "services" },
   { label: "Pricing", query: "pricing" },
-  { label: "Our Work", query: "our work" },
-  { label: "WhatsApp", query: "whatsapp" },
+  { label: "Our work", query: "our work" },
+  { label: "Start a project", query: "start a project" },
 ];
 
 // ---------------------------------------------------------------------------

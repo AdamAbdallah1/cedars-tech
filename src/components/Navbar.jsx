@@ -1,14 +1,42 @@
 import React, { useState, useEffect } from "react";
+import Logo from "../assets/logo-white.png";
 
 const links = [
   { name: "Work", href: "#work" },
   { name: "Services", href: "#solutions" },
+  { name: "Process", href: "#process" },
   { name: "Pricing", href: "#pricing" },
   { name: "FAQ", href: "#faq" },
 ];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("");
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const ids = ["work", "solutions", "process", "pricing", "faq", "contact"];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActive(e.target.id === "solutions" ? "solutions" : e.target.id);
+        });
+      },
+      { rootMargin: "-40% 0px -50% 0px" }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (isOpen) document.body.style.overflow = "hidden";
@@ -23,11 +51,12 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-[100] bg-black/80 backdrop-blur-md border-b border-white/10">
+    <header className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${scrolled ? "bg-black/85 backdrop-blur-md border-b border-white/10" : "bg-transparent border-b border-transparent"}`}>
       <nav className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16" aria-label="Main navigation">
 
         {/* Wordmark */}
-        <a href="#hero" className="text-white font-black tracking-tight text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 rounded">
+        <a href="#hero" className="flex items-center gap-3 text-white font-black tracking-tight text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 rounded">
+          <img src={Logo} alt="Cedars Tech" className="w-7 h-7 object-contain" />
           CEDARS<span className="text-brand"> TECH</span>
         </a>
 
@@ -37,7 +66,9 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-[13px] font-bold uppercase tracking-widest text-gray-400 hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 rounded"
+              className={`text-[13px] font-bold uppercase tracking-widest transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 rounded ${
+                active === link.href.slice(1) ? "text-brand" : "text-gray-400 hover:text-white"
+              }`}
             >
               {link.name}
             </a>

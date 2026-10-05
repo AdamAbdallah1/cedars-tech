@@ -3,6 +3,7 @@ import React from 'react';
 const siteLinks = [
   { name: 'Work', href: '#work' },
   { name: 'Services', href: '#solutions' },
+  { name: 'Process', href: '#process' },
   { name: 'Pricing', href: '#pricing' },
   { name: 'FAQ', href: '#faq' },
 ];
@@ -10,7 +11,7 @@ const siteLinks = [
 const contactLinks = [
   { name: 'WhatsApp', href: 'https://wa.me/96181090757', external: true },
   { name: 'Instagram', href: 'https://instagram.com/cedars.tech', external: true },
-  { name: 'Email', href: 'mailto:adamabdallah.dev@gmail.com', external: false },
+  { name: 'Email', href: 'mailto:contact.cedarstech@proton.me', external: false },
 ];
 
 const Footer = () => {
@@ -25,6 +26,9 @@ const Footer = () => {
           </p>
           <p className="mt-3 text-gray-500 text-sm">
             Websites that mean business.
+          </p>
+          <p className="mt-1 text-[10px] uppercase tracking-[0.3em] text-gray-600">
+            Web Design Studio · Lebanon
           </p>
         </div>
 
