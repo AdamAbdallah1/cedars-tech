@@ -8,12 +8,14 @@ import Solutions from "./components/Solutions";
 import Work from "./components/Work";
 import FAQ from "./components/FAQ";
 import Assistant from "./components/Assistant/Assistant";
+import Intro from "./components/Intro";
 
 function App() {
   return (
     <div className="bg-black text-white min-h-screen">
       <ProgressBar />
 
+      <Intro />
       <Navbar />
       <Hero />
       <Solutions />

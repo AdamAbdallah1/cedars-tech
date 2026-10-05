@@ -209,7 +209,7 @@ export const INTENTS = [
   {
     id: "forsa", priority: 2, match: { keywords: ["forsa"], phrases: ["forsa platform"], synonyms: [], arabicTerms: ["فرصة"], arabiziTerms: ["forsa"], entities: [] },
     response: "Forsa is an opportunity platform connecting students, early-career talent and companies across Lebanon. Built with React, Firebase, Firestore and Tailwind.",
-    cta: null,
+    cta: { label: "View Forsa", url: "https://www.forsa.digital"},
   },
   {
     id: "abc_qatar", priority: 2, match: { keywords: ["abc", "qatar"], phrases: ["abc qatar"], synonyms: [], arabicTerms: [], arabiziTerms: [], entities: [] },

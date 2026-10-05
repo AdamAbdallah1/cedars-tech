@@ -2,13 +2,13 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const concepts = [
-  { title: "Restaurant", link: "/demo/restaurant" },
-  { title: "Coffee Shop", link: "/demo/coffee-shop" },
-  { title: "Barber", link: "/demo/barber" },
-  { title: "Event Plan", link: "/demo/event-plan" },
-  { title: "Travel & Tourism", link: "/demo/travel-tourism" },
-  { title: "Portfolio", link: "/demo/portfolio" },
-  { title: "Dental Clinic", link: "/demo/dental-clinic" },
+  { title: "Restaurant", link: "/demo/restaurant/" },
+  { title: "Coffee Shop", link: "/demo/coffee-shop/" },
+  { title: "Barber", link: "/demo/barber/" },
+  { title: "Event Plan", link: "/demo/event-plan/" },
+  { title: "Travel & Tourism", link: "/demo/travel-tourism/" },
+  { title: "Portfolio", link: "/demo/portfolio/" },
+  { title: "Dental Clinic", link: "/demo/dental-clinic/" },
 ];
 
 const Work = () => {
