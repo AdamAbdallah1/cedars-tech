@@ -21,6 +21,14 @@
       "destination": "https://street-food-vert.vercel.app/demo/street-food"
     },
     {
+      "source": "/demo/nara-realestate",
+      "destination": "https://real-estate-demo-jet-beta.vercel.app/demo/nara-realestate/"
+    },
+    {
+      "source": "/demo/nara-realestate/(.*)",
+      "destination": "https://real-estate-demo-jet-beta.vercel.app/demo/nara-realestate/$1"
+    },
+    {
       "source": "/demo/street-food/(.*)",
       "destination": "https://street-food-vert.vercel.app/demo/street-food/$1"
     },
